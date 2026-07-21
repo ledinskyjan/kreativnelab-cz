@@ -4,8 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KL Agency · kreativně labilní</title>
-<meta name="description" content="KL Agency — kreativní agentura. Stabilní v termínech, labilní v nápadech. Koncept, produkce, zážitek." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%23FF2D8B'/%3E%3Ctext x='50' y='54' font-family='sans-serif' font-weight='900' font-size='42' letter-spacing='-3' fill='%23141414' text-anchor='middle' dominant-baseline='central'%3EKL%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@400;600;800;900&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -110,7 +108,7 @@
     font-size: clamp(64px, 17.5vw, 290px);
     text-transform: lowercase;
   }
-  .giant .l2 { display: block; color: var(--accent); font-style: italic; }
+  .giant .l2 { display: block; color: var(--accent); }
   .giant .ch { display: inline-block; will-change: transform; }
   @media (prefers-reduced-motion: no-preference) {
     .giant .ch { animation: jit var(--dur, 3.4s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
@@ -201,15 +199,15 @@
   .work { padding-top: clamp(70px, 11vh, 130px); padding-bottom: clamp(70px, 11vh, 130px); }
   .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 1.6vw, 26px); }
   .wk { position: relative; }
-  .wk img { display: block; width: 100%; border-radius: 4px; object-fit: cover; }
+  .wk image-slot { display: block; width: 100%; }
   .wk .cap { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; gap: 10px; }
   .wk .cap .t { font-weight: 600; font-size: clamp(15px, 1.3vw, 18px); }
   .wk .cap .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-soft); }
-  .wk-a { grid-column: span 7; } .wk-a img { aspect-ratio: 16/11; }
-  .wk-b { grid-column: span 5; } .wk-b img { aspect-ratio: 4/5; }
-  .wk-c { grid-column: span 5; } .wk-c img { aspect-ratio: 4/5; }
-  .wk-d { grid-column: span 7; } .wk-d img { aspect-ratio: 16/11; }
-  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk img { aspect-ratio: 16/11 !important; } }
+  .wk-a { grid-column: span 7; } .wk-a image-slot { aspect-ratio: 16/11; }
+  .wk-b { grid-column: span 5; } .wk-b image-slot { aspect-ratio: 4/5; }
+  .wk-c { grid-column: span 5; } .wk-c image-slot { aspect-ratio: 4/5; }
+  .wk-d { grid-column: span 7; } .wk-d image-slot { aspect-ratio: 16/11; }
+  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk image-slot { aspect-ratio: 16/11 !important; } }
 
   /* ---------- CONTACT ---------- */
   .contact { padding-top: clamp(80px, 14vh, 170px); padding-bottom: clamp(40px, 6vh, 80px); border-top: 1px solid var(--hair); }
@@ -228,6 +226,11 @@
 
   /* ---------- FOOTER ---------- */
   footer { padding-top: clamp(40px, 6vh, 70px); padding-bottom: clamp(28px, 4vh, 44px); }
+  .foot-mark {
+    font-weight: 700; letter-spacing: -.05em; line-height: .8;
+    font-size: clamp(120px, 38vw, 560px); color: transparent; -webkit-text-stroke: 2px var(--hair);
+    text-transform: uppercase; user-select: none; margin-bottom: clamp(20px, 3vh, 36px);
+  }
   .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--fg-soft); }
   .foot-row .r { display: flex; gap: 22px; flex-wrap: wrap; }
 
@@ -237,9 +240,17 @@
   @media (prefers-reduced-motion: no-preference) {
     html.js .reveal.in { animation: reveal-rise .7s cubic-bezier(.2,.7,.2,1) both; }
   }
+
 </style>
 </head>
 <body>
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#FF2D8B"/>
+      <text x="50" y="50" font-family="Archivo, sans-serif" font-weight="900" font-size="42" letter-spacing="-3" fill="#141414" text-anchor="middle" dominant-baseline="central">KL</text>
+    </svg>
+  </template>
+
   <nav id="nav">
     <a class="brand" href="#top" aria-label="KL Agency">
       <span class="mark">KL</span>
@@ -343,19 +354,19 @@
       </div>
       <div class="work-grid">
         <div class="wk wk-a reveal">
-          <img src="assets/kl-work-1.jpg" alt="Firemní konference" />
+          <image-slot id="kl-work-1" src="assets/kl-work-1.jpg" placeholder="Drop: launch / event" shape="rounded" radius="4"></image-slot>
           <div class="cap"><span class="t">Firemní konference</span><span class="k">Koncept · Produkce</span></div>
         </div>
         <div class="wk wk-b reveal">
-          <img src="assets/kl-work-2.jpg" alt="Videoprodukce" />
+          <image-slot id="kl-work-2" src="assets/kl-work-2.jpg" placeholder="Drop: konference" shape="rounded" radius="4"></image-slot>
           <div class="cap"><span class="t">Videoprodukce</span><span class="k">Produkce · Technika</span></div>
         </div>
         <div class="wk wk-c reveal">
-          <img src="assets/kl-work-3.jpg" alt="Průběh kampaně" />
+          <image-slot id="kl-work-3" src="assets/kl-work-3.jpg" placeholder="Drop: kampaň" shape="rounded" radius="4"></image-slot>
           <div class="cap"><span class="t">Průběh kampaně</span><span class="k">Kreativa · Koncept</span></div>
         </div>
         <div class="wk wk-d reveal">
-          <img src="assets/kl-work-4.jpg" alt="Zahradní slavnost" />
+          <image-slot id="kl-work-4" src="assets/kl-work-4.jpg" placeholder="Drop: festival" shape="rounded" radius="4"></image-slot>
           <div class="cap"><span class="t">Zahradní slavnost</span><span class="k">Zážitek · Produkce</span></div>
         </div>
       </div>
@@ -399,6 +410,10 @@
     </div>
   </footer>
 
+
+  <script src="image-slot.js"></script>
+
+  <!-- Page interactions (vanilla) -->
   <script>
     (function () {
       document.documentElement.classList.add('js');
@@ -446,5 +461,6 @@
       setTimeout(function () { document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); }); }, 2600);
     })();
   </script>
+
 </body>
 </html>
