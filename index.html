@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%23FF2D8B'/%3E%3Ctext x='50' y='54' font-family='sans-serif' font-weight='900' font-size='42' letter-spacing='-3' fill='%23141414' text-anchor='middle' dominant-baseline='central'%3EKL%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@400;600;800;900&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
     --accent: #FF2D8B;
@@ -27,7 +27,7 @@
     --fg-soft: var(--ink-soft);
     --hair: var(--line);
 
-    --gutter: clamp(20px, 5vw, 84px);
+    --gutter: clamp(28px, 6vw, 84px);
     --maxw: 1500px;
   }
   html.dark {
@@ -85,8 +85,7 @@
   .brand .tag { font-size: 12px; color: var(--fg-soft); letter-spacing: .04em; }
   @media (max-width: 620px){ .brand .tag { display: none; } }
   .nav-links { display: flex; align-items: center; gap: clamp(14px, 2vw, 32px); }
-  .nav-links a { font-size: 14px; font-weight: 500; position: relative; }
-  .nav-links a:not(.btn-mini) { padding: 4px 0; }
+  .nav-links a { font-size: 14px; font-weight: 500; position: relative; padding: 4px 0; }
   .nav-links a:not(.btn-mini)::after {
     content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--accent);
     transition: width .25s ease;
@@ -94,9 +93,9 @@
   .nav-links a:not(.btn-mini):hover::after { width: 100%; }
   .nav-links .lbl { display: inline; }
   @media (max-width: 720px){ .nav-links .hide-sm { display: none; } }
-  .btn-mini {
+  .nav-links a.btn-mini {
     border: 1.5px solid var(--fg); padding: 7px 16px; border-radius: 999px;
-    font-weight: 600; transition: background .2s, color .2s;
+    font-weight: 600; transition: background .2s, color .2s; line-height: 1;
   }
   .btn-mini:hover { background: var(--fg); color: var(--bg); }
 
@@ -202,22 +201,15 @@
   .work { padding-top: clamp(70px, 11vh, 130px); padding-bottom: clamp(70px, 11vh, 130px); }
   .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 1.6vw, 26px); }
   .wk { position: relative; }
-  .wk .ph, .wk img {
-    display: block; width: 100%; border-radius: 4px; object-fit: cover;
-  }
-  .wk .ph {
-    background: var(--bg2); border: 1px solid var(--hair);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-soft);
-  }
+  .wk img { display: block; width: 100%; border-radius: 4px; object-fit: cover; }
   .wk .cap { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; gap: 10px; }
   .wk .cap .t { font-weight: 600; font-size: clamp(15px, 1.3vw, 18px); }
   .wk .cap .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-soft); }
-  .wk-a { grid-column: span 7; } .wk-a .ph, .wk-a img { aspect-ratio: 16/11; }
-  .wk-b { grid-column: span 5; } .wk-b .ph, .wk-b img { aspect-ratio: 4/5; }
-  .wk-c { grid-column: span 5; } .wk-c .ph, .wk-c img { aspect-ratio: 4/5; }
-  .wk-d { grid-column: span 7; } .wk-d .ph, .wk-d img { aspect-ratio: 16/11; }
-  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk .ph, .wk img { aspect-ratio: 16/11 !important; } }
+  .wk-a { grid-column: span 7; } .wk-a img { aspect-ratio: 16/11; }
+  .wk-b { grid-column: span 5; } .wk-b img { aspect-ratio: 4/5; }
+  .wk-c { grid-column: span 5; } .wk-c img { aspect-ratio: 4/5; }
+  .wk-d { grid-column: span 7; } .wk-d img { aspect-ratio: 16/11; }
+  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk img { aspect-ratio: 16/11 !important; } }
 
   /* ---------- CONTACT ---------- */
   .contact { padding-top: clamp(80px, 14vh, 170px); padding-bottom: clamp(40px, 6vh, 80px); border-top: 1px solid var(--hair); }
@@ -236,11 +228,6 @@
 
   /* ---------- FOOTER ---------- */
   footer { padding-top: clamp(40px, 6vh, 70px); padding-bottom: clamp(28px, 4vh, 44px); }
-  .foot-mark {
-    font-weight: 700; letter-spacing: -.05em; line-height: .8;
-    font-size: clamp(120px, 38vw, 560px); color: transparent; -webkit-text-stroke: 2px var(--hair);
-    text-transform: uppercase; user-select: none; margin-bottom: clamp(20px, 3vh, 36px);
-  }
   .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--fg-soft); }
   .foot-row .r { display: flex; gap: 22px; flex-wrap: wrap; }
 
@@ -270,7 +257,7 @@
     <!-- HERO -->
     <section class="hero wrap" id="hero">
       <div class="hero-top reveal">
-        <span class="kicker"><span class="dot"></span>Kreativní agentura · Praha &amp; kdekoliv</span>
+        <span class="kicker"><span class="dot"></span>Kreativní agentura · Praha, Čechy a&nbsp;kdekoliv jinde</span>
         <p class="hero-note">Jeden tým a síť lidí, co ví, jak na to. Kreativně labilní.</p>
       </div>
 
@@ -297,7 +284,7 @@
     <!-- PILLARS -->
     <section class="pillars wrap" id="cous">
       <div class="sec-head">
-        <h3 class="reveal">Tři pilíře. Deset disciplín.<br />Jeden tým, který to celé drží pohromadě.</h3>
+        <h3 class="reveal">Tři pilíře.<br />Jeden tým, který to celé drží pohromadě.</h3>
         <span class="kicker reveal">Co&nbsp;umíme</span>
       </div>
 
@@ -305,7 +292,7 @@
         <div class="num">01</div>
         <div class="pname">Koncept</div>
         <div class="pright">
-          <p class="pdesc">Než se začne stavět, musí být co stavět. Najdeme nápad, který drží.</p>
+          <p class="pdesc">Dobrý nápad unese cokoliv, co na něm postavíte. Dáme vám pevné základy.</p>
           <div class="plist">
             <span>Strategie &amp; koncept</span>
             <span>Kreativa &amp; design</span>
@@ -318,7 +305,7 @@
         <div class="num">02</div>
         <div class="pname">Produkce</div>
         <div class="pright">
-          <p class="pdesc">Velký nápad je k&nbsp;ničemu, dokud ho někdo opravdu nepostaví. Postavíme.</p>
+          <p class="pdesc">Jestli stavíte bungalov, nebo mrakodrap, je jen na vás a vašich představách. My tu vizi proměníme v realitu.</p>
           <div class="plist">
             <span>Produkce</span>
             <span>Projektový management</span>
@@ -332,7 +319,7 @@
         <div class="num">03</div>
         <div class="pname">Zážitek</div>
         <div class="pright">
-          <p class="pdesc">Lidé si nepamatují program. Pamatují si, jak se u&nbsp;vás cítili.</p>
+          <p class="pdesc">I ta nejlepší stavba jednou zmizí. Ten pocit, jak se u&nbsp;vás lidé cítili, zůstává navždy.</p>
           <div class="plist">
             <span>Eventy</span>
             <span>Gastro &amp; hospitality</span>
@@ -355,22 +342,21 @@
         <span class="kicker reveal">Výběr&nbsp;z&nbsp;práce</span>
       </div>
       <div class="work-grid">
-        <!-- Až budou fotky: nahraď <div class="ph">…</div> za <img src="…" alt="…"> -->
         <div class="wk wk-a reveal">
-          <div class="ph">Launch / event</div>
-          <div class="cap"><span class="t">Uvedení produktu</span><span class="k">Event · Produkce</span></div>
+          <img src="assets/kl-work-1.jpg" alt="Firemní konference" />
+          <div class="cap"><span class="t">Firemní konference</span><span class="k">Koncept · Produkce</span></div>
         </div>
         <div class="wk wk-b reveal">
-          <div class="ph">Konference</div>
-          <div class="cap"><span class="t">Firemní konference</span><span class="k">Koncept · Realizace</span></div>
+          <img src="assets/kl-work-2.jpg" alt="Videoprodukce" />
+          <div class="cap"><span class="t">Videoprodukce</span><span class="k">Produkce · Technika</span></div>
         </div>
         <div class="wk wk-c reveal">
-          <div class="ph">Kampaň</div>
-          <div class="cap"><span class="t">Značková kampaň</span><span class="k">Kreativa · Design</span></div>
+          <img src="assets/kl-work-3.jpg" alt="Průběh kampaně" />
+          <div class="cap"><span class="t">Průběh kampaně</span><span class="k">Kreativa · Koncept</span></div>
         </div>
         <div class="wk wk-d reveal">
-          <div class="ph">Festival</div>
-          <div class="cap"><span class="t">Festival &amp; program</span><span class="k">Dramaturgie · Gastro</span></div>
+          <img src="assets/kl-work-4.jpg" alt="Zahradní slavnost" />
+          <div class="cap"><span class="t">Zahradní slavnost</span><span class="k">Zážitek · Produkce</span></div>
         </div>
       </div>
     </section>
@@ -386,16 +372,16 @@
           <div class="role">Zakladatel</div>
           <div class="pn">Zdeněk Kubů</div>
           <div class="pm">
-            <a href="mailto:kubu@kreativnelab.cz">kubu@kreativnelab.cz</a>
-            <a href="tel:+420000000000">+420 000 000 000</a>
+            <a href="mailto:zdenda@kreativnelab.cz">zdenda@kreativnelab.cz</a>
+            <a href="tel:+420775064123">+420 775 064 123</a>
           </div>
         </div>
         <div class="person reveal">
-          <div class="role">Obecně</div>
+          <div class="role" aria-hidden="true">&nbsp;</div>
           <div class="pn">Studio</div>
           <div class="pm">
             <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">@kl.agency</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">@kreativnelab.cz</a>
           </div>
         </div>
       </div>
@@ -403,7 +389,6 @@
   </main>
 
   <footer class="wrap">
-    <div class="foot-mark" aria-hidden="true">KL</div>
     <div class="foot-row">
       <span>© 2026 KL Agency · kreativně labilní</span>
       <div class="r">
