@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KL Agency · kreativně labilní</title>
+<meta name="description" content="KL Agency — kreativní agentura. Stabilní v termínech, labilní v nápadech. Koncept, produkce, zážitek." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%23FF2D8B'/%3E%3Ctext x='50' y='54' font-family='sans-serif' font-weight='900' font-size='42' letter-spacing='-3' fill='%23141414' text-anchor='middle' dominant-baseline='central'%3EKL%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #FF2D8B;
+    --font: 'Space Grotesk';
+    --wob: 1;
+
+    --paper: oklch(0.962 0.007 95);
+    --paper-2: oklch(0.935 0.009 95);
+    --ink: oklch(0.17 0.012 75);
+    --ink-soft: oklch(0.17 0.012 75 / 0.55);
+    --line: oklch(0.17 0.012 75 / 0.16);
+
+    --bg: var(--paper);
+    --bg2: var(--paper-2);
+    --fg: var(--ink);
+    --fg-soft: var(--ink-soft);
+    --hair: var(--line);
+
+    --gutter: clamp(20px, 5vw, 84px);
+    --maxw: 1500px;
+  }
+  html.dark {
+    --bg: oklch(0.16 0.006 260);
+    --bg2: oklch(0.205 0.008 260);
+    --fg: oklch(0.95 0.006 95);
+    --fg-soft: oklch(0.95 0.006 95 / 0.55);
+    --hair: oklch(0.95 0.006 95 / 0.17);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font), system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.15;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background .4s ease, color .4s ease;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .kicker {
+    font-size: clamp(11px, 1vw, 13px);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--fg-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: .7em;
+  }
+  .kicker .dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px var(--gutter);
+    backdrop-filter: blur(8px);
+    background: color-mix(in oklab, var(--bg) 72%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  nav.scrolled { border-bottom: 1px solid var(--hair); }
+  .brand { display: flex; align-items: baseline; gap: 12px; font-weight: 700; }
+  .brand .mark {
+    font-size: 22px; letter-spacing: -.02em;
+    border: 2px solid var(--fg); padding: 1px 8px 3px; line-height: 1;
+  }
+  .brand .tag { font-size: 12px; color: var(--fg-soft); letter-spacing: .04em; }
+  @media (max-width: 620px){ .brand .tag { display: none; } }
+  .nav-links { display: flex; align-items: center; gap: clamp(14px, 2vw, 32px); }
+  .nav-links a { font-size: 14px; font-weight: 500; position: relative; padding: 4px 0; }
+  .nav-links a:not(.btn-mini)::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--accent);
+    transition: width .25s ease;
+  }
+  .nav-links a:not(.btn-mini):hover::after { width: 100%; }
+  .nav-links .lbl { display: inline; }
+  @media (max-width: 720px){ .nav-links .hide-sm { display: none; } }
+  .btn-mini {
+    border: 1.5px solid var(--fg); padding: 7px 16px; border-radius: 999px;
+    font-weight: 600; transition: background .2s, color .2s;
+  }
+  .btn-mini:hover { background: var(--fg); color: var(--bg); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); position: relative; }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(24px, 5vh, 60px); }
+  .hero-note { max-width: 30ch; font-size: clamp(14px, 1.3vw, 17px); color: var(--fg-soft); line-height: 1.4; }
+  .giant {
+    font-weight: 700;
+    letter-spacing: -.045em;
+    line-height: .82;
+    font-size: clamp(64px, 17.5vw, 290px);
+    text-transform: lowercase;
+  }
+  .giant .l2 { display: block; color: var(--accent); }
+  .giant .ch { display: inline-block; will-change: transform; }
+  @media (prefers-reduced-motion: no-preference) {
+    .giant .ch { animation: jit var(--dur, 3.4s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
+  }
+  @keyframes jit {
+    0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg); }
+    25%  { transform: translateY(calc(var(--wob) * -0.045em)) rotate(calc(var(--wob) * -1.6deg)) skewX(calc(var(--wob) * 1.5deg)); }
+    50%  { transform: translateY(calc(var(--wob) *  0.03em))  rotate(calc(var(--wob) *  1.1deg)) skewX(calc(var(--wob) * -1deg)); }
+    75%  { transform: translateY(calc(var(--wob) * -0.02em))  rotate(calc(var(--wob) *  0.5deg)) skewX(0deg); }
+  }
+  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: clamp(28px, 5vh, 56px); }
+  .hero-claim { font-size: clamp(18px, 2.2vw, 30px); font-weight: 400; line-height: 1.28; max-width: 19ch; }
+  .hero-claim b { font-weight: 600; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: inherit; font-size: clamp(15px, 1.3vw, 17px); font-weight: 600; cursor: pointer;
+    padding: 15px 26px; border: 2px solid var(--fg); border-radius: 999px;
+    background: var(--fg); color: var(--bg);
+    box-shadow: 5px 5px 0 0 var(--accent);
+    transition: transform .14s ease, box-shadow .14s ease, background .2s, color .2s;
+  }
+  .btn:hover { transform: translate(5px, 5px); box-shadow: 0 0 0 0 var(--accent); }
+  .btn .arr { transition: transform .2s ease; }
+  .btn:hover .arr { transform: translateX(4px); }
+  .btn.ghost { background: transparent; color: var(--fg); box-shadow: none; }
+  .btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: none; }
+
+  /* ---------- MANIFEST ---------- */
+  .manifest { padding-top: clamp(70px, 13vh, 150px); padding-bottom: clamp(70px, 13vh, 150px); border-top: 1px solid var(--hair); }
+  .manifest h2 {
+    font-weight: 700; letter-spacing: -.035em; line-height: .94;
+    font-size: clamp(38px, 7.2vw, 122px); max-width: 16ch;
+  }
+  .manifest h2 .em { color: var(--accent); font-style: italic; }
+  .manifest .sub { margin-top: clamp(26px, 4vh, 46px); max-width: 46ch; font-size: clamp(16px, 1.5vw, 21px); color: var(--fg-soft); line-height: 1.45; }
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; padding-bottom: clamp(28px, 4vh, 52px); }
+  .sec-head h3 { font-weight: 700; letter-spacing: -.03em; font-size: clamp(28px, 4.5vw, 64px); line-height: .98; max-width: 18ch; }
+
+  /* ---------- PILLARS ---------- */
+  .pillars { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); border-top: 1px solid var(--hair); }
+  .pillar {
+    border-top: 1px solid var(--hair); padding: clamp(24px, 4vh, 48px) 0;
+    display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 2.3fr); gap: clamp(16px, 3vw, 56px);
+    align-items: start; cursor: default;
+  }
+  .pillar:last-child { border-bottom: 1px solid var(--hair); }
+  .pillar .num { font-size: clamp(15px, 1.4vw, 19px); font-weight: 600; color: var(--accent); letter-spacing: .02em; }
+  .pillar .pname { font-weight: 700; letter-spacing: -.025em; font-size: clamp(30px, 5vw, 76px); line-height: .92; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .pillar:hover .pname { transform: translateX(clamp(4px, 1vw, 18px)); }
+  .pillar .pright { padding-top: 6px; }
+  .pillar .pdesc { font-size: clamp(16px, 1.45vw, 22px); line-height: 1.35; max-width: 30ch; }
+  .pillar .plist { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .pillar .plist span {
+    font-size: clamp(12px, 1vw, 14px); letter-spacing: .01em; font-weight: 500;
+    border: 1px solid var(--hair); border-radius: 999px; padding: 7px 14px; color: var(--fg-soft);
+    transition: border-color .25s, color .25s, background .25s;
+  }
+  .pillar:hover .plist span { border-color: var(--fg); color: var(--fg); }
+  @media (max-width: 860px){
+    .pillar { grid-template-columns: 1fr; gap: 12px; }
+    .pillar .num { color: var(--accent); }
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker { padding: clamp(30px, 6vh, 64px) 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); overflow: hidden; }
+  .tk-row { display: flex; white-space: nowrap; width: max-content; }
+  .tk-row .seg { display: flex; align-items: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tk-a .seg { animation: scrollL 38s linear infinite; }
+    .tk-b .seg { animation: scrollR 44s linear infinite; }
+  }
+  .tk-b { margin-top: 10px; }
+  @keyframes scrollL { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  @keyframes scrollR { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+  .tk-row .item {
+    font-size: clamp(26px, 4vw, 64px); font-weight: 700; letter-spacing: -.03em;
+    padding: 0 .35em; color: var(--fg);
+  }
+  .tk-b .item { color: transparent; -webkit-text-stroke: 1.4px var(--fg); }
+  .tk-row .star { color: var(--accent); font-size: clamp(20px, 3vw, 48px); padding: 0 .1em; }
+  .ticker:hover .seg { animation-play-state: paused; }
+
+  /* ---------- WORK ---------- */
+  .work { padding-top: clamp(70px, 11vh, 130px); padding-bottom: clamp(70px, 11vh, 130px); }
+  .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 1.6vw, 26px); }
+  .wk { position: relative; }
+  .wk .ph, .wk img {
+    display: block; width: 100%; border-radius: 4px; object-fit: cover;
+  }
+  .wk .ph {
+    background: var(--bg2); border: 1px solid var(--hair);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-soft);
+  }
+  .wk .cap { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; gap: 10px; }
+  .wk .cap .t { font-weight: 600; font-size: clamp(15px, 1.3vw, 18px); }
+  .wk .cap .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-soft); }
+  .wk-a { grid-column: span 7; } .wk-a .ph, .wk-a img { aspect-ratio: 16/11; }
+  .wk-b { grid-column: span 5; } .wk-b .ph, .wk-b img { aspect-ratio: 4/5; }
+  .wk-c { grid-column: span 5; } .wk-c .ph, .wk-c img { aspect-ratio: 4/5; }
+  .wk-d { grid-column: span 7; } .wk-d .ph, .wk-d img { aspect-ratio: 16/11; }
+  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk .ph, .wk img { aspect-ratio: 16/11 !important; } }
+
+  /* ---------- CONTACT ---------- */
+  .contact { padding-top: clamp(80px, 14vh, 170px); padding-bottom: clamp(40px, 6vh, 80px); border-top: 1px solid var(--hair); }
+  .contact h2 {
+    font-weight: 700; letter-spacing: -.04em; line-height: .86;
+    font-size: clamp(56px, 15vw, 240px); text-transform: lowercase;
+  }
+  .contact h2 .em { color: var(--accent); }
+  .contact .lead { margin-top: clamp(22px, 4vh, 40px); font-size: clamp(17px, 1.7vw, 24px); color: var(--fg-soft); max-width: 34ch; }
+  .people { margin-top: clamp(44px, 7vh, 84px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(20px, 3vw, 48px); border-top: 1px solid var(--hair); padding-top: clamp(30px, 4vh, 48px); }
+  .person .role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-soft); margin-bottom: 10px; }
+  .person .pn { font-weight: 700; font-size: clamp(22px, 2.4vw, 34px); letter-spacing: -.02em; }
+  .person .pm { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .person .pm a { font-size: clamp(15px, 1.3vw, 18px); color: var(--fg-soft); width: fit-content; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  .person .pm a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- FOOTER ---------- */
+  footer { padding-top: clamp(40px, 6vh, 70px); padding-bottom: clamp(28px, 4vh, 44px); }
+  .foot-mark {
+    font-weight: 700; letter-spacing: -.05em; line-height: .8;
+    font-size: clamp(120px, 38vw, 560px); color: transparent; -webkit-text-stroke: 2px var(--hair);
+    text-transform: uppercase; user-select: none; margin-bottom: clamp(20px, 3vh, 36px);
+  }
+  .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--fg-soft); }
+  .foot-row .r { display: flex; gap: 22px; flex-wrap: wrap; }
+
+  /* reveal — content is ALWAYS fully opaque; the entrance animates transform only,
+     so even a frozen first frame (capture/print) shows readable content. */
+  @keyframes reveal-rise { from { transform: translateY(24px); } to { transform: none; } }
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .reveal.in { animation: reveal-rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  }
+</style>
+</head>
+<body>
+  <nav id="nav">
+    <a class="brand" href="#top" aria-label="KL Agency">
+      <span class="mark">KL</span>
+      <span class="tag">Agentura</span>
+    </a>
+    <div class="nav-links">
+      <a href="#cous" class="hide-sm">Co umíme</a>
+      <a href="#prace" class="hide-sm">Práce</a>
+      <a href="#kontakt" class="btn-mini">Pojďme do toho</a>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero wrap" id="hero">
+      <div class="hero-top reveal">
+        <span class="kicker"><span class="dot"></span>Kreativní agentura · Praha &amp; kdekoliv</span>
+        <p class="hero-note">Jeden tým a síť lidí, co ví, jak na to. Kreativně labilní.</p>
+      </div>
+
+      <h1 class="giant" id="giant">
+        <span class="l1" data-wobble>kreativně</span>
+        <span class="l2" data-wobble>labilní</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-claim reveal"><b>Vy řeknete co.</b> My zařídíme jak: od první myšlenky po poslední přípitek.</p>
+        <div class="cta-row reveal">
+          <a href="#kontakt" class="btn">Pojďme do toho <span class="arr">→</span></a>
+          <a href="#cous" class="btn ghost">Co umíme</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFEST -->
+    <section class="manifest wrap">
+      <h2 class="reveal">Stabilní v&nbsp;termínech. <span class="em">Labilní</span> v&nbsp;nápadech.</h2>
+      <p class="sub reveal">Postaráme se o&nbsp;celek i&nbsp;o&nbsp;ten detail, kterého si nikdo jiný nevšimne. Vy řešíte jen jedno: že to klaplo.</p>
+    </section>
+
+    <!-- PILLARS -->
+    <section class="pillars wrap" id="cous">
+      <div class="sec-head">
+        <h3 class="reveal">Tři pilíře. Deset disciplín.<br />Jeden tým, který to celé drží pohromadě.</h3>
+        <span class="kicker reveal">Co&nbsp;umíme</span>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="num">01</div>
+        <div class="pname">Koncept</div>
+        <div class="pright">
+          <p class="pdesc">Než se začne stavět, musí být co stavět. Najdeme nápad, který drží.</p>
+          <div class="plist">
+            <span>Strategie &amp; koncept</span>
+            <span>Kreativa &amp; design</span>
+            <span>Program &amp; dramaturgie</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="num">02</div>
+        <div class="pname">Produkce</div>
+        <div class="pright">
+          <p class="pdesc">Velký nápad je k&nbsp;ničemu, dokud ho někdo opravdu nepostaví. Postavíme.</p>
+          <div class="plist">
+            <span>Produkce</span>
+            <span>Projektový management</span>
+            <span>Technické zázemí</span>
+            <span>Realizace &amp; vyhodnocení</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="num">03</div>
+        <div class="pname">Zážitek</div>
+        <div class="pright">
+          <p class="pdesc">Lidé si nepamatují program. Pamatují si, jak se u&nbsp;vás cítili.</p>
+          <div class="plist">
+            <span>Eventy</span>
+            <span>Gastro &amp; hospitality</span>
+            <span>Guest management &amp; komunikace</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <section class="ticker" aria-hidden="true">
+      <div class="tk-row tk-a"></div>
+      <div class="tk-row tk-b"></div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work wrap" id="prace">
+      <div class="sec-head">
+        <h3 class="reveal">Nejlíp mluví výsledky.</h3>
+        <span class="kicker reveal">Výběr&nbsp;z&nbsp;práce</span>
+      </div>
+      <div class="work-grid">
+        <!-- Až budou fotky: nahraď <div class="ph">…</div> za <img src="…" alt="…"> -->
+        <div class="wk wk-a reveal">
+          <div class="ph">Launch / event</div>
+          <div class="cap"><span class="t">Uvedení produktu</span><span class="k">Event · Produkce</span></div>
+        </div>
+        <div class="wk wk-b reveal">
+          <div class="ph">Konference</div>
+          <div class="cap"><span class="t">Firemní konference</span><span class="k">Koncept · Realizace</span></div>
+        </div>
+        <div class="wk wk-c reveal">
+          <div class="ph">Kampaň</div>
+          <div class="cap"><span class="t">Značková kampaň</span><span class="k">Kreativa · Design</span></div>
+        </div>
+        <div class="wk wk-d reveal">
+          <div class="ph">Festival</div>
+          <div class="cap"><span class="t">Festival &amp; program</span><span class="k">Dramaturgie · Gastro</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact wrap" id="kontakt">
+      <span class="kicker reveal">Kontakt</span>
+      <h2 class="reveal" style="margin-top:18px;">pojďme<br />do <span class="em">toho.</span></h2>
+      <p class="lead reveal">Napiš, zavolej, nebo rovnou pošli brief. Káva je na nás.</p>
+
+      <div class="people">
+        <div class="person reveal">
+          <div class="role">Zakladatel</div>
+          <div class="pn">Zdeněk Kubů</div>
+          <div class="pm">
+            <a href="mailto:kubu@kreativnelab.cz">kubu@kreativnelab.cz</a>
+            <a href="tel:+420000000000">+420 000 000 000</a>
+          </div>
+        </div>
+        <div class="person reveal">
+          <div class="role">Obecně</div>
+          <div class="pn">Studio</div>
+          <div class="pm">
+            <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">@kl.agency</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-mark" aria-hidden="true">KL</div>
+    <div class="foot-row">
+      <span>© 2026 KL Agency · kreativně labilní</span>
+      <div class="r">
+        <a href="#cous">Co umíme</a>
+        <a href="#prace">Práce</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      // split letters for wobble
+      document.querySelectorAll('[data-wobble]').forEach(function (el) {
+        var txt = el.textContent;
+        el.textContent = '';
+        for (var i = 0; i < txt.length; i++) {
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = txt[i];
+          s.style.setProperty('--dl', (Math.random() * -3).toFixed(2) + 's');
+          s.style.setProperty('--dur', (2.8 + Math.random() * 2.2).toFixed(2) + 's');
+          el.appendChild(s);
+        }
+      });
+
+      // ticker
+      var services = ['Produkce','Eventy','Strategie','Koncept','Kreativa','Design','Projektový management','Technické zázemí','Program','Dramaturgie','Gastro','Hospitality','Guest management','Komunikace','Realizace','Vyhodnocení'];
+      function buildSeg(list) {
+        var seg = document.createElement('div');
+        seg.className = 'seg';
+        list.forEach(function (s) {
+          var i = document.createElement('span'); i.className = 'item'; i.textContent = s;
+          var star = document.createElement('span'); star.className = 'star'; star.textContent = '✳';
+          seg.appendChild(i); seg.appendChild(star);
+        });
+        return seg;
+      }
+      var rowA = document.querySelector('.tk-a'), rowB = document.querySelector('.tk-b');
+      if (rowA) { rowA.appendChild(buildSeg(services)); rowA.appendChild(buildSeg(services)); }
+      if (rowB) { var rev = services.slice().reverse(); rowB.appendChild(buildSeg(rev)); rowB.appendChild(buildSeg(rev)); }
+
+      // nav border on scroll
+      var nav = document.getElementById('nav');
+      function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 12); }
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+      // reveal on scroll
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      // safety net: if anything is still hidden after load, reveal it
+      setTimeout(function () { document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); }); }, 2600);
+    })();
+  </script>
+</body>
+</html>
