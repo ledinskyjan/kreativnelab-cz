@@ -96,6 +96,14 @@
     font-weight: 600; transition: background .2s, color .2s; line-height: 1;
   }
   .btn-mini:hover { background: var(--fg); color: var(--bg); }
+  .nav-links a.flag {
+    display: inline-flex; align-items: center; line-height: 0;
+    border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px var(--hair);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .nav-links a.flag:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 0 0 1px var(--fg); }
+  .nav-links a.flag::after { display: none; }
+  .nav-links a.flag svg { display: block; width: 26px; height: 13px; }
 
   /* ---------- HERO ---------- */
   .hero { padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); position: relative; }
@@ -259,6 +267,16 @@
     <div class="nav-links">
       <a href="#cous" class="hide-sm">Co umíme</a>
       <a href="#prace" class="hide-sm">Práce</a>
+      <a href="https://wecu.cz" class="flag" aria-label="English version — wecu.cz" title="English version — wecu.cz">
+        <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+          <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+          <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+          <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+        </svg>
+      </a>
       <a href="#kontakt" class="btn-mini">Pojďme do toho</a>
     </div>
   </nav>
