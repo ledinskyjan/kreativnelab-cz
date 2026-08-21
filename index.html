@@ -523,12 +523,13 @@
       <p class="lead reveal">Máte projekt, nápad nebo zatím jen pocit, že by něco vzniknout mělo? Napište nám, kde jste.</p>
 
       <div class="contact-grid">
-        <!-- TODO: nahradit YOUR_FORM_ID skutečným endpointem z formspree.io -->
-        <form id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal">
+        <form id="brief-form" action="https://formspree.io/f/moeabdad" method="POST" class="reveal">
+          <input type="hidden" name="_subject" value="Nová poptávka z kreativnelab.cz (CZ)" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field-row">
             <div class="field">
               <label for="f-name">Jméno</label>
-              <input id="f-name" name="jmeno" type="text" autocomplete="name" required />
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
             </div>
             <div class="field">
               <label for="f-email">E-mail</label>
@@ -538,18 +539,18 @@
 
           <div class="field">
             <label for="f-company">Firma / projekt</label>
-            <input id="f-company" name="firma" type="text" autocomplete="organization" />
+            <input id="f-company" name="company" type="text" autocomplete="organization" />
           </div>
 
           <div class="field">
             <label for="f-what">Co chcete vytvořit?</label>
-            <textarea id="f-what" name="zadani" rows="4" required></textarea>
+            <textarea id="f-what" name="brief" rows="4" required></textarea>
           </div>
 
           <div class="field-row">
             <div class="field">
               <label for="f-phase">V jaké fázi projekt je?</label>
-              <select id="f-phase" name="faze">
+              <select id="f-phase" name="phase">
                 <option value="">Vyberte</option>
                 <option>Zatím jen přemýšlíme</option>
                 <option>Máme nápad, hledáme směr</option>
@@ -559,7 +560,7 @@
             </div>
             <div class="field">
               <label for="f-budget">Rozpočet / rozsah <span class="opt">(nepovinné)</span></label>
-              <input id="f-budget" name="rozpocet" type="text" />
+              <input id="f-budget" name="budget" type="text" />
             </div>
           </div>
 
@@ -656,11 +657,6 @@
       if (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
-            msg.className = 'form-msg err';
-            msg.innerHTML = 'Formulář se teprve zapojuje. Napište prosím na <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>.';
-            return;
-          }
           var btn = form.querySelector('button[type="submit"]');
           btn.disabled = true;
           msg.className = 'form-msg';

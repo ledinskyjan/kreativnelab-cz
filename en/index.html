@@ -523,8 +523,9 @@
       <p class="lead reveal">Do you have a project, an idea, or just a feeling that something should exist? Tell us about it.</p>
 
       <div class="contact-grid">
-        <!-- TODO: replace YOUR_FORM_ID with the real endpoint from formspree.io -->
-        <form id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal">
+        <form id="brief-form" action="https://formspree.io/f/moeabdad" method="POST" class="reveal">
+          <input type="hidden" name="_subject" value="New enquiry from kreativnelab.cz (EN)" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field-row">
             <div class="field">
               <label for="f-name">Name</label>
@@ -656,11 +657,6 @@
       if (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
-            msg.className = 'form-msg err';
-            msg.innerHTML = 'The form isn’t wired up yet. Please write to <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>.';
-            return;
-          }
           var btn = form.querySelector('button[type="submit"]');
           btn.disabled = true;
           msg.className = 'form-msg';
