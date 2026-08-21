@@ -3,16 +3,52 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Creatively Unstable · Creative Agency</title>
-<meta name="description" content="One team and a network of people who know how it's done. You say what. We figure out how — from the first thought to the last toast." />
+
+<title>Kreativně labilní · Creative and production studio</title>
+<meta name="description" content="We come up with projects, build them and run them — the kind people want to gather around. Our own formats and work with brands, from first concept to production and operations." />
+<link rel="canonical" href="https://kreativnelab.cz/en/" />
+<meta name="theme-color" content="#FF2D8B" />
+
+<link rel="alternate" hreflang="cs" href="https://kreativnelab.cz/" />
+<link rel="alternate" hreflang="en" href="https://kreativnelab.cz/en/" />
+<link rel="alternate" hreflang="x-default" href="https://kreativnelab.cz/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:url" content="https://kreativnelab.cz/en/" />
+<meta property="og:site_name" content="Kreativně labilní" />
+<meta property="og:title" content="Kreativně labilní · Creative and production studio" />
+<meta property="og:description" content="We come up with projects, build them and run them — the kind people want to gather around." />
+<!-- TODO: upload assets/og.jpg (1200×630) -->
+<meta property="og:image" content="https://kreativnelab.cz/assets/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF2D8B'/%3E%3Ctext x='50' y='54' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='46' letter-spacing='-3' fill='%23141414' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@400;600;800;900&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kreativně labilní",
+  "alternateName": "KL",
+  "url": "https://kreativnelab.cz/",
+  "description": "Creative and production studio. Our own projects and formats, work with brands and partners.",
+  "email": "ahoj@kreativnelab.cz",
+  "telephone": "+420775064123",
+  "address": { "@type": "PostalAddress", "addressLocality": "Praha", "addressCountry": "CZ" },
+  "founder": { "@type": "Person", "name": "Zdeněk Kubů" }
+}
+</script>
+
 <style>
   :root {
     --accent: #FF2D8B;
     --font: 'Space Grotesk';
+    --display: 'Syne';
     --wob: 1;
 
     --paper: oklch(0.962 0.007 95);
@@ -30,13 +66,6 @@
     --gutter: clamp(28px, 6vw, 84px);
     --maxw: 1500px;
   }
-  html.dark {
-    --bg: oklch(0.16 0.006 260);
-    --bg2: oklch(0.205 0.008 260);
-    --fg: oklch(0.95 0.006 95);
-    --fg-soft: oklch(0.95 0.006 95 / 0.55);
-    --hair: oklch(0.95 0.006 95 / 0.17);
-  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -47,10 +76,10 @@
     line-height: 1.15;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    transition: background .4s ease, color .4s ease;
   }
   ::selection { background: var(--accent); color: #fff; }
   a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 
@@ -64,7 +93,7 @@
     align-items: center;
     gap: .7em;
   }
-  .kicker .dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  .kicker .dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; flex: none; }
 
   /* ---------- NAV ---------- */
   nav {
@@ -91,49 +120,20 @@
     transition: width .25s ease;
   }
   .nav-links a:not(.btn-mini):hover::after { width: 100%; }
-  .nav-links .lbl { display: inline; }
-  @media (max-width: 720px){ .nav-links .hide-sm { display: none; } }
+  @media (max-width: 780px){ .nav-links .hide-sm { display: none; } }
   .nav-links a.btn-mini {
     border: 1.5px solid var(--fg); padding: 7px 16px; border-radius: 999px;
     font-weight: 600; transition: background .2s, color .2s; line-height: 1;
   }
   .btn-mini:hover { background: var(--fg); color: var(--bg); }
-  .nav-links a.flag {
-    display: inline-flex; align-items: center; line-height: 0;
-    border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1px var(--hair);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .nav-links a.flag:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 0 0 1px var(--fg); }
-  .nav-links a.flag::after { display: none; }
-  .nav-links a.flag svg { display: block; width: 26px; height: 17px; }
+  .lang { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; letter-spacing: .06em; }
+  .lang a { padding: 4px 2px; color: var(--fg-soft); }
+  .lang a::after { display: none !important; }
+  .lang a:hover { color: var(--fg); }
+  .lang a.on { color: var(--accent); }
+  .lang .sep { color: var(--hair); }
 
-  /* ---------- HERO ---------- */
-  .hero { padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); position: relative; }
-  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(24px, 5vh, 60px); }
-  .hero-note { max-width: 30ch; font-size: clamp(14px, 1.3vw, 17px); color: var(--fg-soft); line-height: 1.4; }
-  .giant {
-    font-weight: 700;
-    letter-spacing: -.045em;
-    line-height: .82;
-    font-size: clamp(46px, 13.5vw, 250px);
-    text-transform: lowercase;
-  }
-  .giant .l2 { display: block; color: var(--accent); }
-  .giant .ch { display: inline-block; will-change: transform; }
-  @media (prefers-reduced-motion: no-preference) {
-    .giant .ch { animation: jit var(--dur, 3.4s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
-  }
-  @keyframes jit {
-    0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg); }
-    25%  { transform: translateY(calc(var(--wob) * -0.045em)) rotate(calc(var(--wob) * -1.6deg)) skewX(calc(var(--wob) * 1.5deg)); }
-    50%  { transform: translateY(calc(var(--wob) *  0.03em))  rotate(calc(var(--wob) *  1.1deg)) skewX(calc(var(--wob) * -1deg)); }
-    75%  { transform: translateY(calc(var(--wob) * -0.02em))  rotate(calc(var(--wob) *  0.5deg)) skewX(0deg); }
-  }
-  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: clamp(28px, 5vh, 56px); }
-  .hero-claim { font-size: clamp(18px, 2.2vw, 30px); font-weight: 400; line-height: 1.28; max-width: 19ch; }
-  .hero-claim b { font-weight: 600; }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
-
+  /* ---------- BUTTONS ---------- */
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
     font-family: inherit; font-size: clamp(15px, 1.3vw, 17px); font-weight: 600; cursor: pointer;
@@ -148,43 +148,86 @@
   .btn.ghost { background: transparent; color: var(--fg); box-shadow: none; }
   .btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: none; }
 
-  /* ---------- MANIFEST ---------- */
-  .manifest { padding-top: clamp(70px, 13vh, 150px); padding-bottom: clamp(70px, 13vh, 150px); border-top: 1px solid var(--hair); }
-  .manifest h2 {
-    font-weight: 700; letter-spacing: -.035em; line-height: .94;
-    font-size: clamp(38px, 7.2vw, 122px); max-width: 16ch;
+  /* ---------- HERO ---------- */
+  .hero { padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(24px, 5vh, 60px); }
+  .hero-note { max-width: 34ch; font-size: clamp(14px, 1.3vw, 17px); color: var(--fg-soft); line-height: 1.4; }
+  .giant {
+    font-weight: 700;
+    letter-spacing: -.045em;
+    line-height: .82;
+    font-size: clamp(64px, 17.5vw, 290px);
+    text-transform: lowercase;
   }
-  .manifest h2 .em { color: var(--accent); font-style: italic; }
-  .manifest .sub { margin-top: clamp(26px, 4vh, 46px); max-width: 46ch; font-size: clamp(16px, 1.5vw, 21px); color: var(--fg-soft); line-height: 1.45; }
+  .giant .l2 { display: block; color: var(--accent); }
+  .giant .ch { display: inline-block; will-change: transform; }
+  @media (prefers-reduced-motion: no-preference) {
+    .giant .ch { animation: jit var(--dur, 3.4s) ease-in-out infinite; animation-delay: var(--dl, 0s); }
+  }
+  @keyframes jit {
+    0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg); }
+    25%  { transform: translateY(calc(var(--wob) * -0.045em)) rotate(calc(var(--wob) * -1.6deg)) skewX(calc(var(--wob) * 1.5deg)); }
+    50%  { transform: translateY(calc(var(--wob) *  0.03em))  rotate(calc(var(--wob) *  1.1deg)) skewX(calc(var(--wob) * -1deg)); }
+    75%  { transform: translateY(calc(var(--wob) * -0.02em))  rotate(calc(var(--wob) *  0.5deg)) skewX(0deg); }
+  }
+  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: clamp(28px, 5vh, 56px); }
+  .hero-claim { font-size: clamp(20px, 2.4vw, 34px); font-weight: 500; line-height: 1.22; max-width: 24ch; letter-spacing: -.015em; }
+  .hero-support { margin-top: 16px; font-size: clamp(15px, 1.35vw, 19px); color: var(--fg-soft); line-height: 1.45; max-width: 40ch; font-weight: 400; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- MODEL / INTRO ---------- */
+  .model { padding-top: clamp(70px, 13vh, 150px); padding-bottom: clamp(70px, 13vh, 150px); border-top: 1px solid var(--hair); }
+  .model h2 {
+    font-weight: 700; letter-spacing: -.035em; line-height: 1.0;
+    font-size: clamp(30px, 4.6vw, 68px); max-width: 22ch;
+  }
+  .model h2 .em { color: var(--accent); }
+  .model .sub { margin-top: clamp(26px, 4vh, 46px); max-width: 48ch; font-size: clamp(16px, 1.5vw, 21px); color: var(--fg-soft); line-height: 1.5; }
 
   /* ---------- SECTION HEAD ---------- */
   .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; padding-bottom: clamp(28px, 4vh, 52px); }
   .sec-head h3 { font-weight: 700; letter-spacing: -.03em; font-size: clamp(28px, 4.5vw, 64px); line-height: .98; max-width: 18ch; }
 
-  /* ---------- PILLARS ---------- */
-  .pillars { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); border-top: 1px solid var(--hair); }
-  .pillar {
-    border-top: 1px solid var(--hair); padding: clamp(24px, 4vh, 48px) 0;
-    display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 2.3fr); gap: clamp(16px, 3vw, 56px);
-    align-items: start; cursor: default;
+  /* ---------- PROJEKTY: STUDIO / ORIGINALS / SPACE ---------- */
+  .band { border-top: 1px solid var(--hair); }
+  .band-inner { padding-top: clamp(56px, 9vh, 110px); padding-bottom: clamp(56px, 9vh, 110px); }
+
+  .band-studio { background: var(--bg); }
+  .band-originals { background: var(--ink); color: var(--paper); --fg: var(--paper); --fg-soft: oklch(0.96 0.007 95 / 0.58); --hair: oklch(0.96 0.007 95 / 0.18); border-top-color: var(--ink); }
+  .band-space { background: var(--bg2); }
+
+  .strand { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
+  @media (max-width: 900px){ .strand { grid-template-columns: 1fr; gap: 22px; } }
+
+  .strand .lead-col { display: flex; flex-direction: column; gap: 18px; }
+  .strand .status {
+    align-self: flex-start;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
+    border: 1px solid currentColor; border-radius: 999px; padding: 6px 13px; line-height: 1;
+    color: var(--accent);
   }
-  .pillar:last-child { border-bottom: 1px solid var(--hair); }
-  .pillar .num { font-size: clamp(15px, 1.4vw, 19px); font-weight: 600; color: var(--accent); letter-spacing: .02em; }
-  .pillar .pname { font-weight: 700; letter-spacing: -.025em; font-size: clamp(30px, 5vw, 76px); line-height: .92; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
-  .pillar:hover .pname { transform: translateX(clamp(4px, 1vw, 18px)); }
-  .pillar .pright { padding-top: 6px; }
-  .pillar .pdesc { font-size: clamp(16px, 1.45vw, 22px); line-height: 1.35; max-width: 30ch; }
-  .pillar .plist { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-  .pillar .plist span {
-    font-size: clamp(12px, 1vw, 14px); letter-spacing: .01em; font-weight: 500;
+  .strand .status.live { color: var(--fg-soft); border-color: var(--hair); }
+  .strand .name {
+    font-family: var(--display), var(--font), sans-serif;
+    font-weight: 800; letter-spacing: -.035em; line-height: .9;
+    font-size: clamp(44px, 9vw, 132px);
+  }
+  .band-originals .strand .name { color: var(--accent); }
+  @supports (-webkit-text-stroke: 1px black) {
+    .band-space .strand .name { color: transparent; -webkit-text-stroke: 1.6px var(--fg); }
+  }
+  .strand .role { font-size: clamp(16px, 1.5vw, 22px); line-height: 1.35; max-width: 26ch; }
+
+  .strand .body-col { padding-top: clamp(6px, 2vh, 26px); }
+  .strand .body-col p { font-size: clamp(15px, 1.35vw, 19px); line-height: 1.55; color: var(--fg-soft); max-width: 46ch; }
+  .strand .body-col p + p { margin-top: 14px; }
+  .tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span {
+    font-size: clamp(12px, 1vw, 14px); font-weight: 500;
     border: 1px solid var(--hair); border-radius: 999px; padding: 7px 14px; color: var(--fg-soft);
-    transition: border-color .25s, color .25s, background .25s;
+    transition: border-color .25s, color .25s;
   }
-  .pillar:hover .plist span { border-color: var(--fg); color: var(--fg); }
-  @media (max-width: 860px){
-    .pillar { grid-template-columns: 1fr; gap: 12px; }
-    .pillar .num { color: var(--accent); }
-  }
+  .strand:hover .tags span { border-color: var(--fg); color: var(--fg); }
 
   /* ---------- TICKER ---------- */
   .ticker { padding: clamp(30px, 6vh, 64px) 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); overflow: hidden; }
@@ -205,157 +248,217 @@
   .tk-row .star { color: var(--accent); font-size: clamp(20px, 3vw, 48px); padding: 0 .1em; }
   .ticker:hover .seg { animation-play-state: paused; }
 
-  /* ---------- WORK ---------- */
-  .work { padding-top: clamp(70px, 11vh, 130px); padding-bottom: clamp(70px, 11vh, 130px); }
-  .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 1.6vw, 26px); }
-  .wk { position: relative; }
-  .wk image-slot { display: block; width: 100%; }
-  .wk .cap { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; gap: 10px; }
-  .wk .cap .t { font-weight: 600; font-size: clamp(15px, 1.3vw, 18px); }
-  .wk .cap .k { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-soft); }
-  .wk-a { grid-column: span 7; } .wk-a image-slot { aspect-ratio: 16/11; }
-  .wk-b { grid-column: span 5; } .wk-b image-slot { aspect-ratio: 4/5; }
-  .wk-c { grid-column: span 5; } .wk-c image-slot { aspect-ratio: 4/5; }
-  .wk-d { grid-column: span 7; } .wk-d image-slot { aspect-ratio: 16/11; }
-  @media (max-width: 760px){ .wk { grid-column: 1 / -1 !important; } .wk image-slot { aspect-ratio: 16/11 !important; } }
+  /* ---------- JAK PRACUJEME ---------- */
+  .process { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); }
+  .step {
+    border-top: 1px solid var(--hair); padding: clamp(24px, 4vh, 48px) 0;
+    display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 2.6fr); gap: clamp(16px, 3vw, 56px);
+    align-items: start;
+  }
+  .step:last-of-type { border-bottom: 1px solid var(--hair); }
+  .step .num { font-size: clamp(15px, 1.4vw, 19px); font-weight: 600; color: var(--accent); }
+  .step .sname { font-weight: 700; letter-spacing: -.025em; font-size: clamp(30px, 5vw, 76px); line-height: .92; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .step:hover .sname { transform: translateX(clamp(4px, 1vw, 18px)); }
+  .step .sdesc { padding-top: 6px; font-size: clamp(16px, 1.45vw, 21px); line-height: 1.45; max-width: 42ch; color: var(--fg-soft); }
+  @media (max-width: 860px){ .step { grid-template-columns: 1fr; gap: 12px; } }
 
-  /* ---------- CONTACT ---------- */
+  /* ---------- O NÁS ---------- */
+  .about { padding-top: clamp(70px, 11vh, 140px); padding-bottom: clamp(70px, 11vh, 140px); border-top: 1px solid var(--hair); }
+  .about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 90px); align-items: start; }
+  @media (max-width: 900px){ .about-grid { grid-template-columns: 1fr; gap: 30px; } }
+  .about h3 { font-weight: 700; letter-spacing: -.03em; font-size: clamp(28px, 4.4vw, 62px); line-height: 1.0; max-width: 18ch; }
+  .about .body p { font-size: clamp(16px, 1.45vw, 20px); line-height: 1.55; color: var(--fg-soft); max-width: 46ch; }
+  .about .body p + p { margin-top: 16px; }
+  .about .body strong { color: var(--fg); font-weight: 600; }
+  .note {
+    margin-top: clamp(34px, 5vh, 60px);
+    border-left: 3px solid var(--accent); padding: 4px 0 4px clamp(16px, 2vw, 28px);
+  }
+  .note .nk { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--fg-soft); font-weight: 600; }
+  .note p { margin-top: 10px; font-size: clamp(16px, 1.5vw, 21px); line-height: 1.45; max-width: 44ch; }
+  .founder { margin-top: clamp(34px, 5vh, 56px); border-top: 1px solid var(--hair); padding-top: 26px; }
+  .founder .role { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-soft); }
+  .founder .fname { margin-top: 8px; font-weight: 700; font-size: clamp(24px, 2.6vw, 38px); letter-spacing: -.02em; }
+  .founder .fmeta { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .founder .fmeta a { font-size: clamp(15px, 1.3vw, 18px); color: var(--fg-soft); width: fit-content; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  .founder .fmeta a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- KONTAKT ---------- */
   .contact { padding-top: clamp(80px, 14vh, 170px); padding-bottom: clamp(40px, 6vh, 80px); border-top: 1px solid var(--hair); }
   .contact h2 {
-    font-weight: 700; letter-spacing: -.04em; line-height: .86;
-    font-size: clamp(56px, 15vw, 240px); text-transform: lowercase;
+    font-weight: 700; letter-spacing: -.04em; line-height: .88;
+    font-size: clamp(46px, 11vw, 190px); text-transform: lowercase; margin-top: 18px;
   }
   .contact h2 .em { color: var(--accent); }
-  .contact .lead { margin-top: clamp(22px, 4vh, 40px); font-size: clamp(17px, 1.7vw, 24px); color: var(--fg-soft); max-width: 34ch; }
-  .people { margin-top: clamp(44px, 7vh, 84px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(20px, 3vw, 48px); border-top: 1px solid var(--hair); padding-top: clamp(30px, 4vh, 48px); }
-  .person .role { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-soft); margin-bottom: 10px; }
-  .person .pn { font-weight: 700; font-size: clamp(22px, 2.4vw, 34px); letter-spacing: -.02em; }
-  .person .pm { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
-  .person .pm a { font-size: clamp(15px, 1.3vw, 18px); color: var(--fg-soft); width: fit-content; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
-  .person .pm a:hover { color: var(--accent); border-color: var(--accent); }
+  .contact .lead { margin-top: clamp(22px, 4vh, 40px); font-size: clamp(17px, 1.7vw, 24px); color: var(--fg-soft); max-width: 40ch; }
+
+  .contact-grid { margin-top: clamp(44px, 7vh, 84px); display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(30px, 5vw, 80px); border-top: 1px solid var(--hair); padding-top: clamp(30px, 4vh, 52px); }
+  @media (max-width: 900px){ .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+  .field label { font-size: 12px; letter-spacing: .13em; text-transform: uppercase; font-weight: 600; color: var(--fg-soft); }
+  .field label .opt { text-transform: none; letter-spacing: 0; font-weight: 400; }
+  .field input, .field select, .field textarea {
+    font-family: inherit; font-size: clamp(15px, 1.3vw, 17px); color: var(--fg);
+    background: transparent; border: 0; border-bottom: 1.5px solid var(--hair);
+    padding: 10px 0; border-radius: 0; line-height: 1.4;
+    transition: border-color .2s;
+  }
+  .field textarea { resize: vertical; min-height: 92px; }
+  .field select { appearance: none; cursor: pointer; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--accent); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 620px){ .field-row { grid-template-columns: 1fr; gap: 0; } }
+  .form-foot { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+  .form-msg { font-size: 15px; line-height: 1.4; }
+  .form-msg.ok { color: var(--accent); font-weight: 600; }
+  .form-msg.err { color: var(--fg); }
+
+  .direct { display: flex; flex-direction: column; gap: clamp(24px, 4vh, 38px); }
+  .direct .blk .role { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-soft); margin-bottom: 10px; }
+  .direct .blk .dn { font-weight: 700; font-size: clamp(20px, 2.2vw, 30px); letter-spacing: -.02em; }
+  .direct .blk .dm { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .direct .blk .dm a { font-size: clamp(15px, 1.3vw, 18px); color: var(--fg-soft); width: fit-content; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  .direct .blk .dm a:hover { color: var(--accent); border-color: var(--accent); }
 
   /* ---------- FOOTER ---------- */
   footer { padding-top: clamp(40px, 6vh, 70px); padding-bottom: clamp(28px, 4vh, 44px); }
-  .foot-mark {
-    font-weight: 700; letter-spacing: -.05em; line-height: .8;
-    font-size: clamp(120px, 38vw, 560px); color: transparent; -webkit-text-stroke: 2px var(--hair);
-    text-transform: uppercase; user-select: none; margin-bottom: clamp(20px, 3vh, 36px);
-  }
+  .foot-line { font-size: clamp(15px, 1.4vw, 19px); color: var(--fg-soft); padding-bottom: 22px; }
+  .foot-line .em { color: var(--accent); font-style: italic; }
   .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--fg-soft); }
   .foot-row .r { display: flex; gap: 22px; flex-wrap: wrap; }
 
-  /* reveal — content is ALWAYS fully opaque; the entrance animates transform only,
-     so even a frozen first frame (capture/print) shows readable content. */
+  /* reveal — obsah je vždy čitelný, animuje se pouze transform */
   @keyframes reveal-rise { from { transform: translateY(24px); } to { transform: none; } }
   @media (prefers-reduced-motion: no-preference) {
     html.js .reveal.in { animation: reveal-rise .7s cubic-bezier(.2,.7,.2,1) both; }
   }
-
 </style>
 </head>
 <body>
-  <template id="__bundler_thumbnail">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" fill="#FF2D8B"/>
-      <text x="50" y="50" font-family="Archivo, sans-serif" font-weight="900" font-size="42" letter-spacing="-3" fill="#141414" text-anchor="middle" dominant-baseline="central">CU</text>
-    </svg>
-  </template>
 
   <nav id="nav">
-    <a class="brand" href="#top" aria-label="Creatively Unstable">
-      <span class="mark">CU</span>
-      <span class="tag">Agency</span>
+    <a class="brand" href="#top" aria-label="Kreativně labilní">
+      <span class="mark">KL</span>
+      <span class="tag">kreativně labilní</span>
     </a>
     <div class="nav-links">
-      <a href="#work-do" class="hide-sm">What we do</a>
-      <a href="#work" class="hide-sm">Work</a>
-      <a href="https://kreativnelab.cz" class="flag" aria-label="Česká verze — kreativnelab.cz" title="Česká verze — kreativnelab.cz">
-        <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="60" height="40" fill="#fff"/>
-          <rect y="20" width="60" height="20" fill="#D7141A"/>
-          <path d="M0,0 30,20 0,40 z" fill="#11457E"/>
-        </svg>
-      </a>
-      <a href="#contact" class="btn-mini">Let's do this</a>
+      <a href="#projects" class="hide-sm">Projects</a>
+      <a href="#how" class="hide-sm">How we work</a>
+      <a href="#about" class="hide-sm">About</a>
+      <span class="lang"><a href="/">CZ</a><span class="sep">/</span><a href="/en/" class="on" aria-current="true">EN</a></span>
+      <a href="#contact" class="btn-mini">Contact</a>
     </div>
   </nav>
 
   <main id="top">
 
     <!-- HERO -->
-    <section class="hero wrap" id="hero">
+    <section class="hero wrap">
       <div class="hero-top reveal">
-        <span class="kicker"><span class="dot"></span>Creative agency · Prague, Czechia and&nbsp;anywhere else</span>
-        <p class="hero-note">One team and a network of people who know how it's done. Creatively unstable.</p>
+        <span class="kicker"><span class="dot"></span>Creative and production studio · Prague</span>
+        <p class="hero-note">Our own projects and formats. Work with brands and partners.</p>
       </div>
 
-      <h1 class="giant" id="giant">
-        <span class="l1">creatively</span>
-        <span class="l2" data-wobble>unstable</span>
+      <h1 class="giant">
+        <span class="l1">kreativně</span>
+        <span class="l2" data-wobble>labilní</span>
       </h1>
 
       <div class="hero-bottom">
-        <p class="hero-claim reveal"><b>You say what.</b> We figure out how: from the first thought to the last toast.</p>
+        <div class="reveal">
+          <p class="hero-claim">We come up with projects, build them and run them — the kind people want to gather around.</p>
+          <p class="hero-support">From the first concept through communication and partnerships to production and operations.</p>
+        </div>
         <div class="cta-row reveal">
-          <a href="#contact" class="btn">Let's do this <span class="arr">→</span></a>
-          <a href="#work-do" class="btn ghost">What we do</a>
+          <a href="#projects" class="btn">Projects <span class="arr">→</span></a>
+          <a href="#contact" class="btn ghost">Let’s make something</a>
         </div>
       </div>
     </section>
 
-    <!-- MANIFEST -->
-    <section class="manifest wrap">
-      <h2 class="reveal">Stable on&nbsp;deadlines. <span class="em">Unstable</span> on&nbsp;ideas.</h2>
-      <p class="sub reveal">We take care of the whole picture and the one detail nobody else notices. You worry about just one thing: that it all clicked.</p>
+    <!-- MODEL -->
+    <section class="model wrap">
+      <h2 class="reveal">Some projects we create ourselves. Into others we come in as a <span class="em">creative and production partner.</span></h2>
+      <p class="sub reveal">Either way we care about the whole project, not single line items in a production budget. We take on the idea, the people around it and whether it works in the end.</p>
     </section>
 
-    <!-- PILLARS -->
-    <section class="pillars wrap" id="work-do">
-      <div class="sec-head">
-        <h3 class="reveal">Three pillars.<br />One team that holds it all together.</h3>
-        <span class="kicker reveal">What&nbsp;we&nbsp;do</span>
-      </div>
+    <!-- PROJECTS -->
+    <div id="projects">
 
-      <div class="pillar reveal">
-        <div class="num">01</div>
-        <div class="pname">Concept</div>
-        <div class="pright">
-          <p class="pdesc">A good idea can carry anything you build on it. We give you solid foundations.</p>
-          <div class="plist">
-            <span>Strategy &amp; concept</span>
-            <span>Creative &amp; design</span>
-            <span>Program &amp; dramaturgy</span>
+      <section class="band band-studio">
+        <div class="wrap band-inner">
+          <div class="sec-head">
+            <h3 class="reveal">Three strands, one studio.</h3>
+            <span class="kicker reveal">Projects</span>
+          </div>
+
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status live">Live</span>
+              <div class="name">Studio</div>
+              <p class="role">Concepts and projects for brands and partners.</p>
+            </div>
+            <div class="body-col">
+              <p>We come in while it is still unclear what exactly should be built. We propose the idea, build a team and partners around it and take the project all the way into operation.</p>
+              <p>We are not the supplier of one budget line. We take responsibility for the whole.</p>
+              <div class="tags">
+                <span>Concept &amp; creative direction</span>
+                <span>Brand activation</span>
+                <span>Launches</span>
+                <span>Programming</span>
+                <span>Partnerships</span>
+                <span>Production</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="pillar reveal">
-        <div class="num">02</div>
-        <div class="pname">Production</div>
-        <div class="pright">
-          <p class="pdesc">Whether you're building a bungalow or a skyscraper is up to you and your vision. We turn that vision into reality.</p>
-          <div class="plist">
-            <span>Production</span>
-            <span>Project management</span>
-            <span>Technical setup</span>
-            <span>Delivery &amp; evaluation</span>
+      <section class="band band-originals">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">In development</span>
+              <div class="name">Originals</div>
+              <p class="role">Our own projects and formats that we initiate and build for the long run.</p>
+            </div>
+            <div class="body-col">
+              <p>The first bigger thing we are working on is a festival about gaming culture. Board games, cards, video games, retro, RPGs and collecting in one place — across generations.</p>
+              <p>It is still in development. Once we have a date, a place and partners, we will say so out loud.</p>
+              <div class="tags">
+                <span>Festival</span>
+                <span>Gaming culture</span>
+                <span>Own IP</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="pillar reveal">
-        <div class="num">03</div>
-        <div class="pname">Experience</div>
-        <div class="pright">
-          <p class="pdesc">Even the best build eventually disappears. The way people felt with you stays forever.</p>
-          <div class="plist">
-            <span>Events</span>
-            <span>Gastro &amp; hospitality</span>
-            <span>Guest management &amp; communication</span>
+      <section class="band band-space">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">In development</span>
+              <div class="name">Space</div>
+              <p class="role">Our own space in Prague, in the works.</p>
+            </div>
+            <div class="body-col">
+              <p>A café, a small event venue and our base at the same time. A place with its own program, where partner projects meet and where we test new formats before building them at scale.</p>
+              <p>We are looking for the space. Once we find it, you will see it here.</p>
+              <div class="tags">
+                <span>Café</span>
+                <span>Event venue</span>
+                <span>Own program</span>
+                <span>Base of operations</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+    </div>
 
     <!-- TICKER -->
     <section class="ticker" aria-hidden="true">
@@ -363,53 +466,128 @@
       <div class="tk-row tk-b"></div>
     </section>
 
-    <!-- WORK -->
-    <section class="work wrap" id="work">
+    <!-- HOW WE WORK -->
+    <section class="process wrap" id="how">
       <div class="sec-head">
-        <h3 class="reveal">Results speak loudest.</h3>
-        <span class="kicker reveal">Selected&nbsp;work</span>
+        <h3 class="reveal">From an idea to something that actually works.</h3>
+        <span class="kicker reveal">How we work</span>
       </div>
-      <div class="work-grid">
-        <div class="wk wk-a reveal">
-          <image-slot id="cu-work-1" src="../assets/kl-work-1.jpg" placeholder="Drop: launch / event" shape="rounded" radius="4"></image-slot>
-          <div class="cap"><span class="t">Corporate conference</span><span class="k">Concept · Production</span></div>
+
+      <div class="step reveal">
+        <div class="num">01</div>
+        <div class="sname">Concept</div>
+        <p class="sdesc">First we look for the idea, the direction and the reason the project should exist at all.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="num">02</div>
+        <div class="sname">Production</div>
+        <p class="sdesc">Then we build a real project out of the concept — budget, team, partners, venue, communication and delivery.</p>
+      </div>
+
+      <div class="step reveal">
+        <div class="num">03</div>
+        <div class="sname">Experience</div>
+        <p class="sdesc">The result is not just a well-produced event, but a project that makes sense to people, to the brand and to the space.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about wrap" id="about">
+      <div class="about-grid">
+        <div>
+          <h3 class="reveal">We build the team around the project, not the project around the team.</h3>
+          <div class="note reveal">
+            <div class="nk">Hospitality</div>
+            <p>We have gastronomy and live operations behind us. So we do not only think about how a project looks, but also how people move through it, how they feel and whether the whole thing holds up in daily operation.</p>
+          </div>
         </div>
-        <div class="wk wk-b reveal">
-          <image-slot id="cu-work-2" src="../assets/kl-work-2.jpg" placeholder="Drop: conference" shape="rounded" radius="4"></image-slot>
-          <div class="cap"><span class="t">Video production</span><span class="k">Production · Tech</span></div>
-        </div>
-        <div class="wk wk-c reveal">
-          <image-slot id="cu-work-3" src="../assets/kl-work-3.jpg" placeholder="Drop: campaign" shape="rounded" radius="4"></image-slot>
-          <div class="cap"><span class="t">Campaign rollout</span><span class="k">Creative · Concept</span></div>
-        </div>
-        <div class="wk wk-d reveal">
-          <image-slot id="cu-work-4" src="../assets/kl-work-4.jpg" placeholder="Drop: festival" shape="rounded" radius="4"></image-slot>
-          <div class="cap"><span class="t">Garden party</span><span class="k">Experience · Production</span></div>
+
+        <div class="body reveal">
+          <p>Every project needs something different. So we put together the people, partners and solutions that make the most sense around it.</p>
+          <p><strong>Responsibility for the whole stays with us.</strong> You do not have to work out who exactly does which part. You come to Kreativně labilní and the project will be designed, built and led at the quality we agree on.</p>
+
+          <div class="founder">
+            <div class="role">Founder</div>
+            <div class="fname">Zdeněk Kubů</div>
+            <div class="fmeta">
+              <a href="mailto:zdenda@kreativnelab.cz">zdenda@kreativnelab.cz</a>
+              <a href="tel:+420775064123">+420 775 064 123</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact wrap" id="contact">
-      <span class="kicker reveal">Contact</span>
-      <h2 class="reveal" style="margin-top:18px;">let's<br />do <span class="em">this.</span></h2>
-      <p class="lead reveal">Write, call, or just send a brief. Coffee's on us.</p>
+      <span class="kicker reveal"><span class="dot"></span>Contact</span>
+      <h2 class="reveal">let’s make<br /><span class="em">something.</span></h2>
+      <p class="lead reveal">Do you have a project, an idea, or just a feeling that something should exist? Tell us where you are.</p>
 
-      <div class="people">
-        <div class="person reveal">
-          <div class="role">Founder</div>
-          <div class="pn">Zdeněk Kubů</div>
-          <div class="pm">
-            <a href="mailto:zdenda@kreativnelab.cz">zdenda@kreativnelab.cz</a>
-            <a href="tel:+420775064123">+420 775 064 123</a>
+      <div class="contact-grid">
+        <!-- TODO: replace YOUR_FORM_ID with the real endpoint from formspree.io -->
+        <form id="brief-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal">
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required />
+            </div>
           </div>
-        </div>
-        <div class="person reveal">
-          <div class="role" aria-hidden="true">&nbsp;</div>
-          <div class="pn">Studio</div>
-          <div class="pm">
-            <a href="mailto:ahoj@kreativnelab.cz">hello@kreativnelab.cz</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">@creativelyunstable</a>
+
+          <div class="field">
+            <label for="f-company">Company / project</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="field">
+            <label for="f-what">What do you want to create?</label>
+            <textarea id="f-what" name="brief" rows="4" required></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phase">What stage is the project at?</label>
+              <select id="f-phase" name="phase">
+                <option value="">Select</option>
+                <option>We are just thinking about it</option>
+                <option>We have an idea, looking for direction</option>
+                <option>We have a brief, looking for a partner</option>
+                <option>We have a date and a budget</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-budget">Budget / scope <span class="opt">(optional)</span></label>
+              <input id="f-budget" name="budget" type="text" />
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <button type="submit" class="btn">Send <span class="arr">→</span></button>
+            <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="direct reveal">
+          <div class="blk">
+            <div class="role">Studio</div>
+            <div class="dn">Kreativně labilní</div>
+            <div class="dm">
+              <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener">@kreativnelab.cz</a>
+            </div>
+          </div>
+          <div class="blk">
+            <div class="role">Founder</div>
+            <div class="dn">Zdeněk Kubů</div>
+            <div class="dm">
+              <a href="mailto:zdenda@kreativnelab.cz">zdenda@kreativnelab.cz</a>
+              <a href="tel:+420775064123">+420 775 064 123</a>
+            </div>
           </div>
         </div>
       </div>
@@ -417,24 +595,23 @@
   </main>
 
   <footer class="wrap">
+    <p class="foot-line">Stable on deadlines. <span class="em">Unstable</span> on ideas.</p>
     <div class="foot-row">
-      <span>© 2026 Creatively Unstable · creative agency</span>
+      <span>© 2026 Kreativně labilní</span>
       <div class="r">
-        <a href="#work-do">What we do</a>
-        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#how">How we work</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-
-  <script src="../image-slot.js"></script>
-
-  <!-- Page interactions (vanilla) -->
   <script>
     (function () {
       document.documentElement.classList.add('js');
-      // split letters for wobble
+
+      // split the word into letters for the wobble animation
       document.querySelectorAll('[data-wobble]').forEach(function (el) {
         var txt = el.textContent;
         el.textContent = '';
@@ -448,8 +625,8 @@
         }
       });
 
-      // ticker
-      var services = ['Production','Events','Strategy','Concept','Creative','Design','Project management','Technical setup','Program','Dramaturgy','Gastro','Hospitality','Guest management','Communication','Delivery','Evaluation'];
+      // ticker — ideas, not a service catalogue
+      var words = ['Concepts','Projects','Formats','Brands','Spaces','Culture','Partnerships','Production','Programming','Operations'];
       function buildSeg(list) {
         var seg = document.createElement('div');
         seg.className = 'seg';
@@ -461,8 +638,8 @@
         return seg;
       }
       var rowA = document.querySelector('.tk-a'), rowB = document.querySelector('.tk-b');
-      if (rowA) { rowA.appendChild(buildSeg(services)); rowA.appendChild(buildSeg(services)); }
-      if (rowB) { var rev = services.slice().reverse(); rowB.appendChild(buildSeg(rev)); rowB.appendChild(buildSeg(rev)); }
+      if (rowA) { rowA.appendChild(buildSeg(words)); rowA.appendChild(buildSeg(words)); }
+      if (rowB) { var rev = words.slice().reverse(); rowB.appendChild(buildSeg(rev)); rowB.appendChild(buildSeg(rev)); }
 
       // nav border on scroll
       var nav = document.getElementById('nav');
@@ -474,8 +651,43 @@
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-      // safety net: if anything is still hidden after load, reveal it
       setTimeout(function () { document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); }); }, 2600);
+
+      // submit the form without leaving the page
+      var form = document.getElementById('brief-form');
+      var msg = document.getElementById('form-msg');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
+            msg.className = 'form-msg err';
+            msg.innerHTML = 'The form is not wired up yet. Please write to <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>.';
+            return;
+          }
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          msg.className = 'form-msg';
+          msg.textContent = 'Sending…';
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(function (r) {
+            if (r.ok) {
+              form.reset();
+              msg.className = 'form-msg ok';
+              msg.textContent = 'Sent. We will get back to you within two working days.';
+            } else {
+              throw new Error('bad response');
+            }
+          }).catch(function () {
+            msg.className = 'form-msg err';
+            msg.innerHTML = 'Sending failed. Please write to <a href="mailto:ahoj@kreativnelab.cz">ahoj@kreativnelab.cz</a>.';
+          }).finally(function () {
+            btn.disabled = false;
+          });
+        });
+      }
     })();
   </script>
 
