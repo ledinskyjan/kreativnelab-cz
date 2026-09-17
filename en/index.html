@@ -247,7 +247,9 @@
   .ticker:hover .seg { animation-play-state: paused; }
 
   /* ---------- JAK PRACUJEME ---------- */
-  .process { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); }
+  .process { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); border-top: 1px solid var(--hair); }
+  .process .intro { max-width: 52ch; margin-top: calc(-1 * clamp(8px, 1.5vh, 20px)); padding-bottom: clamp(30px, 5vh, 60px); font-size: clamp(16px, 1.5vw, 21px); color: var(--fg-soft); line-height: 1.5; }
+  .ticker + #projekty > .band:first-child, .ticker + #projects > .band:first-child { border-top-color: transparent; }
   .step {
     border-top: 1px solid var(--hair); padding: clamp(24px, 4vh, 48px) 0;
     display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 2.6fr); gap: clamp(16px, 3vw, 56px);
@@ -341,9 +343,9 @@
       <span class="tag">kreativně labilní</span>
     </a>
     <div class="nav-links">
-      <a href="#projects" class="hide-sm">Projects</a>
       <a href="#how" class="hide-sm">How we work</a>
       <a href="#about" class="hide-sm">About</a>
+      <a href="#projects" class="hide-sm">Projects</a>
       <span class="lang"><a href="/">CZ</a><span class="sep">/</span><a href="/en/" class="on" aria-current="true">EN</a></span>
       <a href="#contact" class="btn-mini">Contact</a>
     </div>
@@ -381,111 +383,30 @@
       <p class="sub reveal">Either way we care about the whole project, not single line items in a production budget. We take on the idea, the people around it, and whether the thing actually works.</p>
     </section>
 
-    <!-- PROJECTS -->
-    <div id="projects">
-
-      <section class="band band-studio">
-        <div class="wrap band-inner">
-          <div class="sec-head">
-            <h3 class="reveal">Three strands, one studio.</h3>
-            <span class="kicker reveal">Projects</span>
-          </div>
-
-          <div class="strand reveal">
-            <div class="lead-col">
-              <div class="name">Studio</div>
-              <p class="role">Concepts and projects for brands and partners.</p>
-            </div>
-            <div class="body-col">
-              <p>We come in while it’s still unclear what should be built at all. We propose the idea, build a team and partners around it and take it all the way through to opening.</p>
-              <p>We’re not a line item in someone else’s budget. We take responsibility for the whole.</p>
-              <div class="tags">
-                <span>Concept &amp; creative direction</span>
-                <span>Brand activation</span>
-                <span>Launches</span>
-                <span>Programming</span>
-                <span>Partnerships</span>
-                <span>Production</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band-originals">
-        <div class="wrap band-inner">
-          <div class="strand reveal">
-            <div class="lead-col">
-              <span class="status">In development</span>
-              <div class="name">Originals</div>
-              <p class="role">Our own projects and formats that we initiate and build for the long run.</p>
-            </div>
-            <div class="body-col">
-              <p>The first big one is a festival about gaming culture. Board games, cards, video games, retro, RPGs and collecting in one place — across generations.</p>
-              <p>It’s still in development. Once we have a date, a place and partners, you’ll hear it from us.</p>
-              <div class="tags">
-                <span>Festival</span>
-                <span>Gaming culture</span>
-                <span>Own IP</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band-space">
-        <div class="wrap band-inner">
-          <div class="strand reveal">
-            <div class="lead-col">
-              <span class="status">In development</span>
-              <div class="name">Space</div>
-              <p class="role">A place of our own in Prague. In the works.</p>
-            </div>
-            <div class="body-col">
-              <p>A café, a small event venue and our base of operations, all in one. A place with its own programme, where partner projects meet and where we test new formats before building them at scale.</p>
-              <p>We’re looking for a space. Once we find it, you’ll see it here.</p>
-              <div class="tags">
-                <span>Café</span>
-                <span>Event venue</span>
-                <span>Own programme</span>
-                <span>Base of operations</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- TICKER -->
-    <section class="ticker" aria-hidden="true">
-      <div class="tk-row tk-a"></div>
-      <div class="tk-row tk-b"></div>
-    </section>
-
     <!-- HOW WE WORK -->
     <section class="process wrap" id="how">
       <div class="sec-head">
         <h3 class="reveal">From an idea to something that actually works.</h3>
         <span class="kicker reveal">How we work</span>
       </div>
+      <p class="intro reveal">We can be there from the very first idea, but we don’t have to be. Come to us with a problem, a rough idea, a finished concept, or a project that needs someone to take it over and see it through. We step in wherever the project needs us.</p>
 
       <div class="step reveal">
         <div class="num">01</div>
-        <div class="sname">Concept</div>
-        <p class="sdesc">First we look for the idea, the direction and the reason the project should exist at all.</p>
+        <div class="sname">Intent</div>
+        <p class="sdesc">We get to grips with what should exist and where the project stands today: what already works, what needs more work and what’s missing. If the concept is good, we don’t reinvent it.</p>
       </div>
 
       <div class="step reveal">
         <div class="num">02</div>
         <div class="sname">Production</div>
-        <p class="sdesc">Then we build a real project out of the concept — budget, team, partners, venue, communication and delivery.</p>
+        <p class="sdesc">We work out what and who the project needs, then build it — budget, people, partners, venue, communication and delivery.</p>
       </div>
 
       <div class="step reveal">
         <div class="num">03</div>
         <div class="sname">Experience</div>
-        <p class="sdesc">The result is not just a well-produced event, but a project that makes sense to people, to the brand and to the space.</p>
+        <p class="sdesc">We take responsibility for the whole. The result is not just a well-produced event, but a project that makes sense to people, to the brand and to the space.</p>
       </div>
     </section>
 
@@ -515,6 +436,88 @@
         </div>
       </div>
     </section>
+
+    <!-- TICKER -->
+    <section class="ticker" aria-hidden="true">
+      <div class="tk-row tk-a"></div>
+      <div class="tk-row tk-b"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <div id="projects">
+
+      <section class="band band-studio">
+        <div class="wrap band-inner">
+          <div class="sec-head">
+            <h3 class="reveal">Projects</h3>
+            <span class="kicker reveal">What we’re working on</span>
+          </div>
+
+          <div class="strand reveal">
+            <div class="lead-col">
+              <div class="name">Studio</div>
+              <p class="role">Partner and client projects.</p>
+            </div>
+            <div class="body-col">
+              <p>We can be there from the first idea, or take over a project that already knows where it’s going. The stage you come to us at matters less than what happens next: we get to the heart of what you want, sharpen the concept, recommend the way forward and bring in the people and partners it needs.</p>
+              <p>Then we lead production and make it real. We’re not a line item in someone else’s budget — we answer for the whole thing.</p>
+              <div class="tags">
+                <span>Concept &amp; creative direction</span>
+                <span>Brand activation</span>
+                <span>Launches</span>
+                <span>Programming</span>
+                <span>Partnerships</span>
+                <span>Production</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-originals">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">In development</span>
+              <div class="name">Originals</div>
+              <p class="role">Kreativně labilní’s own projects.</p>
+            </div>
+            <div class="body-col">
+              <p>We’re working on a big festival of our own — built around play, people and the culture that grows up around it.</p>
+              <p>That’s all we’re saying for now. When the time comes, you’ll hear it from us.</p>
+              <div class="tags">
+                <span>Festival</span>
+                <span>Own IP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-space">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">In development</span>
+              <div class="name">Space</div>
+              <p class="role">A place of our own in Prague. In the works.</p>
+            </div>
+            <div class="body-col">
+              <p>A café, a place to meet and an event space with its own programme. Also the production base for Kreativně labilní, where we test new formats before building them at scale.</p>
+              <p>It isn’t open yet — we’re still looking for the right place. Once we find it, you’ll see it here.</p>
+              <div class="tags">
+                <span>Café</span>
+                <span>Meeting place</span>
+                <span>Event space</span>
+                <span>Own programme</span>
+                <span>Production base</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
 
     <!-- CONTACT -->
     <section class="contact wrap" id="contact">
@@ -597,9 +600,9 @@
     <div class="foot-row">
       <span>© 2026 Kreativně labilní</span>
       <div class="r">
-        <a href="#projects">Projects</a>
         <a href="#how">How we work</a>
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
     </div>

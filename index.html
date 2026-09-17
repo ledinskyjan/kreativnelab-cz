@@ -247,7 +247,9 @@
   .ticker:hover .seg { animation-play-state: paused; }
 
   /* ---------- JAK PRACUJEME ---------- */
-  .process { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); }
+  .process { padding-top: clamp(60px, 9vh, 110px); padding-bottom: clamp(60px, 9vh, 110px); border-top: 1px solid var(--hair); }
+  .process .intro { max-width: 52ch; margin-top: calc(-1 * clamp(8px, 1.5vh, 20px)); padding-bottom: clamp(30px, 5vh, 60px); font-size: clamp(16px, 1.5vw, 21px); color: var(--fg-soft); line-height: 1.5; }
+  .ticker + #projekty > .band:first-child, .ticker + #projects > .band:first-child { border-top-color: transparent; }
   .step {
     border-top: 1px solid var(--hair); padding: clamp(24px, 4vh, 48px) 0;
     display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 2fr) minmax(0, 2.6fr); gap: clamp(16px, 3vw, 56px);
@@ -341,9 +343,9 @@
       <span class="tag">kreativně labilní</span>
     </a>
     <div class="nav-links">
-      <a href="#projekty" class="hide-sm">Projekty</a>
       <a href="#jak" class="hide-sm">Jak pracujeme</a>
       <a href="#o-nas" class="hide-sm">O nás</a>
+      <a href="#projekty" class="hide-sm">Projekty</a>
       <span class="lang"><a href="/" class="on" aria-current="true">CZ</a><span class="sep">/</span><a href="/en/">EN</a></span>
       <a href="#kontakt" class="btn-mini">Kontakt</a>
     </div>
@@ -381,111 +383,30 @@
       <p class="sub reveal">V obou případech nás zajímá celý projekt, ne jednotlivé položky produkce. Bereme si na starost myšlenku, lidi kolem ní i to, jestli nakonec funguje.</p>
     </section>
 
-    <!-- PROJEKTY -->
-    <div id="projekty">
-
-      <section class="band band-studio">
-        <div class="wrap band-inner">
-          <div class="sec-head">
-            <h3 class="reveal">Tři linky, jedno studio.</h3>
-            <span class="kicker reveal">Projekty</span>
-          </div>
-
-          <div class="strand reveal">
-            <div class="lead-col">
-              <div class="name">Studio</div>
-              <p class="role">Koncepty a projekty pro značky a partnery.</p>
-            </div>
-            <div class="body-col">
-              <p>Nastupujeme ve chvíli, kdy ještě není jasné, co přesně má vzniknout. Navrhneme myšlenku, postavíme kolem ní tým a partnery a dovedeme projekt až do provozu.</p>
-              <p>Nejsme dodavatel jedné položky rozpočtu. Bereme si odpovědnost za celek.</p>
-              <div class="tags">
-                <span>Koncept &amp; creative direction</span>
-                <span>Brand activation</span>
-                <span>Launche</span>
-                <span>Dramaturgie</span>
-                <span>Partnerství</span>
-                <span>Produkce</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band-originals">
-        <div class="wrap band-inner">
-          <div class="strand reveal">
-            <div class="lead-col">
-              <span class="status">Připravujeme</span>
-              <div class="name">Originals</div>
-              <p class="role">Vlastní projekty a formáty, které iniciujeme a dlouhodobě stavíme.</p>
-            </div>
-            <div class="body-col">
-              <p>První větší věc, na které pracujeme, je festival o kultuře hraní. Deskovky, karty, videohry, retro, RPG a sběratelství na jednom místě — napříč generacemi.</p>
-              <p>Zatím je to ve vývoji. Až budeme mít termín, místo a partnery, řekneme to nahlas.</p>
-              <div class="tags">
-                <span>Festival</span>
-                <span>Herní kultura</span>
-                <span>Vlastní IP</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band-space">
-        <div class="wrap band-inner">
-          <div class="strand reveal">
-            <div class="lead-col">
-              <span class="status">Připravujeme</span>
-              <div class="name">Space</div>
-              <p class="role">Připravovaný vlastní prostor v Praze.</p>
-            </div>
-            <div class="body-col">
-              <p>Kavárna, menší event venue a zároveň naše základna. Místo, kde běží vlastní program, potkávají se partnerské projekty a testujeme nové formáty dřív, než je postavíme ve velkém.</p>
-              <p>Hledáme prostor. Až ho najdeme, uvidíte ho tady.</p>
-              <div class="tags">
-                <span>Kavárna</span>
-                <span>Event venue</span>
-                <span>Vlastní program</span>
-                <span>Base of operations</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- TICKER -->
-    <section class="ticker" aria-hidden="true">
-      <div class="tk-row tk-a"></div>
-      <div class="tk-row tk-b"></div>
-    </section>
-
     <!-- JAK PRACUJEME -->
     <section class="process wrap" id="jak">
       <div class="sec-head">
         <h3 class="reveal">Od myšlenky k něčemu, co reálně funguje.</h3>
         <span class="kicker reveal">Jak pracujeme</span>
       </div>
+      <p class="intro reveal">Můžeme být u projektu od prvního nápadu, ale nemusíme. Přijít můžete s problémem, s první myšlenkou, s hotovým konceptem i s projektem, který potřebuje někoho, kdo ho převezme a dotáhne. Vstoupíme tam, kde nás projekt potřebuje.</p>
 
       <div class="step reveal">
         <div class="num">01</div>
-        <div class="sname">Koncept</div>
-        <p class="sdesc">Nejdřív hledáme myšlenku, směr a důvod, proč má projekt vůbec vzniknout.</p>
+        <div class="sname">Záměr</div>
+        <p class="sdesc">Pochopíme, co má vzniknout a kde projekt právě je. Co už funguje, co je potřeba dopracovat a co chybí. Dobrý koncept znovu nevymýšlíme.</p>
       </div>
 
       <div class="step reveal">
         <div class="num">02</div>
         <div class="sname">Produkce</div>
-        <p class="sdesc">Z konceptu pak stavíme reálný projekt — rozpočet, tým, partnery, místo, komunikaci a realizaci.</p>
+        <p class="sdesc">Určíme, co a koho projekt potřebuje, a postavíme ho — rozpočet, lidi, partnery, místo, komunikaci a realizaci.</p>
       </div>
 
       <div class="step reveal">
         <div class="num">03</div>
         <div class="sname">Zážitek</div>
-        <p class="sdesc">Výsledkem není jen správně odprodukovaná akce, ale projekt, který dává smysl lidem, značce i prostoru.</p>
+        <p class="sdesc">Převezmeme odpovědnost za celek. Výsledkem není jen správně odprodukovaná akce, ale projekt, který dává smysl lidem, značce i prostoru.</p>
       </div>
     </section>
 
@@ -515,6 +436,88 @@
         </div>
       </div>
     </section>
+
+    <!-- TICKER -->
+    <section class="ticker" aria-hidden="true">
+      <div class="tk-row tk-a"></div>
+      <div class="tk-row tk-b"></div>
+    </section>
+
+    <!-- PROJEKTY -->
+    <div id="projekty">
+
+      <section class="band band-studio">
+        <div class="wrap band-inner">
+          <div class="sec-head">
+            <h3 class="reveal">Projekty</h3>
+            <span class="kicker reveal">Na čem pracujeme</span>
+          </div>
+
+          <div class="strand reveal">
+            <div class="lead-col">
+              <div class="name">Studio</div>
+              <p class="role">Partnerské a klientské projekty.</p>
+            </div>
+            <div class="body-col">
+              <p>Můžeme u projektu být od prvního nápadu, ale stejně tak převezmeme projekt, který už má jasný směr. Nerozhoduje, v jaké fázi přicházíte. Pochopíme záměr, dopracujeme koncept, doporučíme další směr a propojíme lidi a partnery, které projekt potřebuje.</p>
+              <p>Pak převezmeme produkční vedení a dostaneme projekt do reality. Nejsme dodavatel jedné položky rozpočtu — odpovídáme za celek.</p>
+              <div class="tags">
+                <span>Koncept &amp; creative direction</span>
+                <span>Brand activation</span>
+                <span>Launche</span>
+                <span>Dramaturgie</span>
+                <span>Partnerství</span>
+                <span>Produkce</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-originals">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">Připravujeme</span>
+              <div class="name">Originals</div>
+              <p class="role">Vlastní projekty Kreativně labilní.</p>
+            </div>
+            <div class="body-col">
+              <p>Pracujeme na vlastním velkém festivalu. Postaveném kolem hraní, lidí a kultury, která kolem něj vzniká.</p>
+              <p>Víc zatím neprozradíme. Až přijde čas, řekneme to nahlas.</p>
+              <div class="tags">
+                <span>Festival</span>
+                <span>Vlastní IP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-space">
+        <div class="wrap band-inner">
+          <div class="strand reveal">
+            <div class="lead-col">
+              <span class="status">Připravujeme</span>
+              <div class="name">Space</div>
+              <p class="role">Připravovaný vlastní prostor v Praze.</p>
+            </div>
+            <div class="body-col">
+              <p>Kavárna, místo pro setkávání a eventový prostor s vlastním programem. A zároveň produkční základna Kreativně labilní, kde testujeme nové formáty dřív, než je postavíme ve velkém.</p>
+              <p>Zatím ho neprovozujeme — hledáme vhodný prostor. Až ho najdeme, uvidíte ho tady.</p>
+              <div class="tags">
+                <span>Kavárna</span>
+                <span>Setkávání</span>
+                <span>Eventový prostor</span>
+                <span>Vlastní program</span>
+                <span>Produkční základna</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
 
     <!-- KONTAKT -->
     <section class="contact wrap" id="kontakt">
@@ -597,9 +600,9 @@
     <div class="foot-row">
       <span>© 2026 Kreativně labilní</span>
       <div class="r">
-        <a href="#projekty">Projekty</a>
         <a href="#jak">Jak pracujeme</a>
         <a href="#o-nas">O nás</a>
+        <a href="#projekty">Projekty</a>
         <a href="#kontakt">Kontakt</a>
       </div>
     </div>
