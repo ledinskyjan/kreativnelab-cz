@@ -328,7 +328,7 @@
   .foot-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--hair); font-size: 13px; color: var(--fg-soft); }
   .foot-row .r { display: flex; gap: 22px; flex-wrap: wrap; }
 
-  /* reveal — obsah je vždy čitelný, animuje se pouze transform */
+  /* reveal: obsah je vždy čitelný, animuje se pouze transform */
   @keyframes reveal-rise { from { transform: translateY(24px); } to { transform: none; } }
   @media (prefers-reduced-motion: no-preference) {
     html.js .reveal.in { animation: reveal-rise .7s cubic-bezier(.2,.7,.2,1) both; }
@@ -400,7 +400,7 @@
       <div class="step reveal">
         <div class="num">02</div>
         <div class="sname">Production</div>
-        <p class="sdesc">We work out what and who the project needs, then build it — budget, people, partners, venue, communication and delivery.</p>
+        <p class="sdesc">We work out what and who the project needs, then build it: budget, people, partners, venue, communication and delivery.</p>
       </div>
 
       <div class="step reveal">
@@ -460,7 +460,7 @@
             </div>
             <div class="body-col">
               <p>We can be there from the first idea, or take over a project that already knows where it’s going. The stage you come to us at matters less than what happens next: we get to the heart of what you want, sharpen the concept, recommend the way forward and bring in the people and partners it needs.</p>
-              <p>Then we lead production and make it real. We’re not a line item in someone else’s budget — we answer for the whole thing.</p>
+              <p>Then we lead production and make it real. We’re not a line item in someone else’s budget. We answer for the whole thing.</p>
               <div class="tags">
                 <span>Concept &amp; creative direction</span>
                 <span>Brand activation</span>
@@ -483,7 +483,7 @@
               <p class="role">Kreativně labilní’s own projects.</p>
             </div>
             <div class="body-col">
-              <p>We’re working on a big festival of our own, for thousands of people — built around play, people and the culture that grows up around it.</p>
+              <p>We’re working on a big festival of our own, for thousands of people, built around play, people and the culture that grows up around it.</p>
               <p>That’s all we’re saying for now. When the time comes, you’ll hear it from us.</p>
               <div class="tags">
                 <span>Festival</span>
@@ -504,7 +504,7 @@
             </div>
             <div class="body-col">
               <p>A café, a place to meet and an event space with its own programme. Also the production base for Kreativně labilní, where we test new formats before building them at scale.</p>
-              <p>It isn’t open yet — we’re still looking for the right place. Once we find it, you’ll see it here.</p>
+              <p>It isn’t open yet. We’re still looking for the right place. Once we find it, you’ll see it here.</p>
               <div class="tags">
                 <span>Café</span>
                 <span>Meeting place</span>
@@ -626,7 +626,7 @@
         }
       });
 
-      // ticker — ideas, not a service catalogue
+      // ticker: ideas, not a service catalogue
       var words = ['Concepts','Projects','Formats','Brands','Spaces','Culture','Partnerships','Production','Programming','Operations'];
       function buildSeg(list) {
         var seg = document.createElement('div');
