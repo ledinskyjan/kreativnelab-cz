@@ -50,11 +50,11 @@
     --font: 'Space Grotesk';
     --wob: 1;
 
-    --paper: oklch(0.962 0.007 95);
-    --paper-2: oklch(0.935 0.009 95);
-    --ink: oklch(0.17 0.012 75);
-    --ink-soft: oklch(0.17 0.012 75 / 0.55);
-    --line: oklch(0.17 0.012 75 / 0.16);
+    --paper: #ffffff;
+    --paper-2: #f1f1f1;
+    --ink: #111111;
+    --ink-soft: color-mix(in oklab, var(--ink) 55%, transparent);
+    --line: color-mix(in oklab, var(--ink) 16%, transparent);
 
     --bg: var(--paper);
     --bg2: var(--paper-2);
@@ -192,7 +192,7 @@
   .band-inner { padding-top: clamp(56px, 9vh, 110px); padding-bottom: clamp(56px, 9vh, 110px); }
 
   .band-studio { background: var(--bg); }
-  .band-originals { background: var(--ink); color: var(--paper); --fg: var(--paper); --fg-soft: oklch(0.96 0.007 95 / 0.58); --hair: oklch(0.96 0.007 95 / 0.18); border-top-color: var(--ink); }
+  .band-originals { background: var(--ink); color: var(--paper); --fg: var(--paper); --fg-soft: color-mix(in oklab, var(--paper) 58%, transparent); --hair: color-mix(in oklab, var(--paper) 18%, transparent); border-top-color: var(--ink); }
   .band-space { background: var(--bg2); }
 
   .strand { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: start; }
