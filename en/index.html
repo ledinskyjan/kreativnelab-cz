@@ -19,11 +19,14 @@
 <meta property="og:site_name" content="Kreativně labilní" />
 <meta property="og:title" content="Kreativně labilní · Creative and production studio" />
 <meta property="og:description" content="We invent, build and run projects people want to gather around." />
-<!-- TODO: upload assets/og.jpg (1200×630) -->
-<meta property="og:image" content="https://kreativnelab.cz/assets/og.jpg" />
+<meta property="og:image" content="https://kreativnelab.cz/assets/og-en.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF2D8B'/%3E%3Ctext x='50' y='54' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='46' letter-spacing='-3' fill='%23141414' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -105,13 +108,10 @@
     transition: border-color .3s, background .3s;
   }
   nav.scrolled { border-bottom: 1px solid var(--hair); }
-  .brand { display: flex; align-items: baseline; gap: 12px; font-weight: 700; }
-  .brand .mark {
-    font-size: 22px; letter-spacing: -.02em;
-    border: 2px solid var(--fg); padding: 1px 8px 3px; line-height: 1;
-  }
-  .brand .tag { font-size: 12px; color: var(--fg-soft); letter-spacing: .04em; }
-  @media (max-width: 620px){ .brand .tag { display: none; } }
+  .brand { display: flex; align-items: center; color: var(--fg); }
+  .brand .logo { display: block; height: 26px; width: auto; }
+  .brand .logo-mark { display: none; height: 30px; width: auto; }
+  @media (max-width: 600px){ .brand .logo { display: none; } .brand .logo-mark { display: block; } }
   .nav-links { display: flex; align-items: center; gap: clamp(14px, 2vw, 32px); }
   .nav-links a { font-size: 14px; font-weight: 500; position: relative; padding: 4px 0; }
   .nav-links a:not(.btn-mini)::after {
@@ -339,8 +339,8 @@
 
   <nav id="nav">
     <a class="brand" href="#top" aria-label="Kreativně labilní">
-      <span class="mark">KL</span>
-      <span class="tag">kreativně labilní</span>
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="7.00 12.95 728.90 75.04"><path d="M70 0V-700H196V-313H214L378 -496H542L313 -256L550 0H388L214 -197H196V0Z" transform="translate(0.00 86.00) scale(0.10000)" fill="currentColor"/><path d="M70 0V-496H194V-440H212Q223 -470 248.5 -484.0Q274 -498 308 -498H368V-386H306Q258 -386 227.0 -360.5Q196 -335 196 -282V0Z" transform="translate(52.90 86.00) scale(0.10000)" fill="currentColor"/><path d="M296 14Q222 14 165.5 -17.5Q109 -49 77.5 -106.5Q46 -164 46 -242V-254Q46 -332 77.0 -389.5Q108 -447 164.0 -478.5Q220 -510 294 -510Q367 -510 421.0 -477.5Q475 -445 505.0 -387.5Q535 -330 535 -254V-211H174Q176 -160 212.0 -128.0Q248 -96 300 -96Q353 -96 378.0 -119.0Q403 -142 416 -170L519 -116Q505 -90 478.5 -59.5Q452 -29 408.0 -7.5Q364 14 296 14ZM175 -305H407Q403 -348 372.5 -374.0Q342 -400 293 -400Q242 -400 212.0 -374.0Q182 -348 175 -305Z" transform="translate(89.00 86.00) scale(0.10000)" fill="currentColor"/><path d="M224 14Q171 14 129.0 -4.5Q87 -23 62.5 -58.5Q38 -94 38 -145Q38 -196 62.5 -230.5Q87 -265 130.5 -282.5Q174 -300 230 -300H366V-328Q366 -363 344.0 -385.5Q322 -408 274 -408Q227 -408 204.0 -386.5Q181 -365 174 -331L58 -370Q70 -408 96.5 -439.5Q123 -471 167.5 -490.5Q212 -510 276 -510Q374 -510 431.0 -461.0Q488 -412 488 -319V-134Q488 -104 516 -104H556V0H472Q435 0 411.0 -18.0Q387 -36 387 -66V-67H368Q364 -55 350.0 -35.5Q336 -16 306.0 -1.0Q276 14 224 14ZM246 -88Q299 -88 332.5 -117.5Q366 -147 366 -196V-206H239Q204 -206 184.0 -191.0Q164 -176 164 -149Q164 -122 185.0 -105.0Q206 -88 246 -88Z" transform="translate(143.20 86.00) scale(0.10000)" fill="currentColor"/><path d="M260 0Q211 0 180.5 -30.5Q150 -61 150 -112V-392H26V-496H150V-650H276V-496H412V-392H276V-134Q276 -104 304 -104H400V0Z" transform="translate(197.50 86.00) scale(0.10000)" fill="currentColor"/><path d="M70 0V-496H196V0ZM133 -554Q99 -554 75.5 -576.0Q52 -598 52 -634Q52 -670 75.5 -692.0Q99 -714 133 -714Q168 -714 191.0 -692.0Q214 -670 214 -634Q214 -598 191.0 -576.0Q168 -554 133 -554Z" transform="translate(239.60 86.00) scale(0.10000)" fill="currentColor"/><path d="M174 0 16 -496H150L265 -92H283L398 -496H532L374 0Z" transform="translate(262.70 86.00) scale(0.10000)" fill="currentColor"/><path d="M70 0V-496H194V-431H212Q224 -457 257.0 -480.5Q290 -504 357 -504Q415 -504 458.5 -477.5Q502 -451 526.0 -404.5Q550 -358 550 -296V0H424V-286Q424 -342 396.5 -370.0Q369 -398 318 -398Q260 -398 228.0 -359.5Q196 -321 196 -252V0Z" transform="translate(314.00 86.00) scale(0.10000)" fill="currentColor"/><path d="M296 14Q222 14 165.5 -17.5Q109 -49 77.5 -106.5Q46 -164 46 -242V-254Q46 -332 77.0 -389.5Q108 -447 164.0 -478.5Q220 -510 294 -510Q367 -510 421.0 -477.5Q475 -445 505.0 -387.5Q535 -330 535 -254V-211H174Q176 -160 212.0 -128.0Q248 -96 300 -96Q353 -96 378.0 -119.0Q403 -142 416 -170L519 -116Q505 -90 478.5 -59.5Q452 -29 408.0 -7.5Q364 14 296 14ZM175 -305H407Q403 -348 372.5 -374.0Q342 -400 293 -400Q242 -400 212.0 -374.0Q182 -348 175 -305ZM219 -552 102 -700H229L285 -626H303L359 -700H486L369 -552Z" transform="translate(372.10 86.00) scale(0.10000)" fill="currentColor"/><path d="M70 0V-700H196V0Z" transform="rotate(-6.00 467.60 86.00) translate(454.30 86.00) scale(0.10000)" fill="var(--accent)"/><path d="M224 14Q171 14 129.0 -4.5Q87 -23 62.5 -58.5Q38 -94 38 -145Q38 -196 62.5 -230.5Q87 -265 130.5 -282.5Q174 -300 230 -300H366V-328Q366 -363 344.0 -385.5Q322 -408 274 -408Q227 -408 204.0 -386.5Q181 -365 174 -331L58 -370Q70 -408 96.5 -439.5Q123 -471 167.5 -490.5Q212 -510 276 -510Q374 -510 431.0 -461.0Q488 -412 488 -319V-134Q488 -104 516 -104H556V0H472Q435 0 411.0 -18.0Q387 -36 387 -66V-67H368Q364 -55 350.0 -35.5Q336 -16 306.0 -1.0Q276 14 224 14ZM246 -88Q299 -88 332.5 -117.5Q366 -147 366 -196V-206H239Q204 -206 184.0 -191.0Q164 -176 164 -149Q164 -122 185.0 -105.0Q206 -88 246 -88Z" transform="rotate(3.90 508.30 84.78) translate(478.60 84.78) scale(0.10000)" fill="var(--accent)"/><path d="M368 14Q301 14 265.0 -9.0Q229 -32 212 -60H194V0H70V-700H196V-439H214Q225 -457 243.5 -473.0Q262 -489 292.5 -499.5Q323 -510 368 -510Q428 -510 479.0 -480.5Q530 -451 561.0 -394.0Q592 -337 592 -256V-240Q592 -159 561.0 -102.0Q530 -45 479.0 -15.5Q428 14 368 14ZM330 -96Q388 -96 427.0 -133.5Q466 -171 466 -243V-253Q466 -325 427.5 -362.5Q389 -400 330 -400Q272 -400 233.0 -362.5Q194 -325 194 -253V-243Q194 -171 233.0 -133.5Q272 -96 330 -96Z" transform="rotate(-2.10 567.20 86.70) translate(534.10 86.70) scale(0.10000)" fill="var(--accent)"/><path d="M70 0V-496H196V0ZM133 -554Q99 -554 75.5 -576.0Q52 -598 52 -634Q52 -670 75.5 -692.0Q99 -714 133 -714Q168 -714 191.0 -692.0Q214 -670 214 -634Q214 -598 191.0 -576.0Q168 -554 133 -554Z" transform="rotate(-5.40 608.90 84.08) translate(595.60 84.08) scale(0.10000)" fill="var(--accent)"/><path d="M70 0V-700H196V0Z" transform="rotate(3.60 633.20 86.35) translate(619.90 86.35) scale(0.10000)" fill="var(--accent)"/><path d="M70 0V-496H194V-431H212Q224 -457 257.0 -480.5Q290 -504 357 -504Q415 -504 458.5 -477.5Q502 -451 526.0 -404.5Q550 -358 550 -296V0H424V-286Q424 -342 396.5 -370.0Q369 -398 318 -398Q260 -398 228.0 -359.5Q196 -321 196 -252V0Z" transform="rotate(-2.40 675.20 85.12) translate(644.20 85.12) scale(0.10000)" fill="var(--accent)"/><path d="M70 0V-496H196V0ZM57 -552 131 -700H273L167 -552Z" transform="rotate(4.20 720.00 87.40) translate(703.50 87.40) scale(0.10000)" fill="var(--accent)"/></svg>
+      <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="7.00 15.97 77.56 71.12"><path d="M70 0V-700H196V-313H214L378 -496H542L313 -256L550 0H388L214 -197H196V0Z" transform="translate(0.00 86.00) scale(0.10000)" fill="currentColor"/><path d="M70 0V-700H196V0Z" transform="rotate(10.00 66.20 86.00) translate(52.90 86.00) scale(0.10000)" fill="var(--accent)"/></svg>
     </a>
     <div class="nav-links">
       <a href="#how" class="hide-sm">How we work</a>
