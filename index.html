@@ -136,6 +136,12 @@
   .btn.ghost { background: transparent; color: var(--fg); box-shadow: none; }
   .btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: none; }
 
+  /* ---------- ZALAMOVÁNÍ ŘÁDKŮ ----------
+     Nadpisy mají vyrovnané řádky, odstavce se lámou tak, aby nezůstalo osamocené slovo.
+     Pevné mezery doplňuje skript na konci stránky (typografie). */
+  h2, h3, .sname, .strand .role { text-wrap: balance; }
+  p, li { text-wrap: pretty; }
+
   /* ---------- HERO ----------
      Pevná kompozice: všechny rozměry jsou násobky --s (1px v okně 1440×900),
      takže první obrazovka vypadá na každém displeji stejně, jen větší nebo menší.
@@ -455,10 +461,6 @@
 
       <section class="band band-studio">
         <div class="wrap band-inner">
-          <div class="sec-head">
-            <h3 class="reveal">Projekty</h3>
-          </div>
-
           <div class="strand reveal">
             <div class="lead-col">
               <div class="name">Studio</div>
@@ -616,6 +618,43 @@
   <script>
     (function () {
       document.documentElement.classList.add('js');
+
+      // typografie: pevné mezery, aby řádek nekončil jednopísmennou předložkou nebo spojkou (jen česky)
+      // ani osamoceným slovem z okraje věty či části věty za čárkou, a aby odstavec nekončil jedním slovem
+      (function () {
+        var cs = document.documentElement.lang === 'cs';
+        var ONE = /^[(„"]?[ksvzouai]$/i, END = /[.,;:?!…]["“”)]*$/, NUM = /^\+?\d+$/;
+        document.querySelectorAll('main p, main h2, main h3, main li, main .sname, main label, footer p').forEach(function (el) {
+          if (el.closest('.hero, .ticker, .btn')) return;
+          // slova a mezery mezi nimi přes všechny textové uzly, <br> je pevný zlom
+          var tok = [], cur = null, gap = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT), n;
+          while ((n = w.nextNode())) {
+            if (n.nodeType === 1) { if (n.tagName === 'BR') { cur = null; gap = []; } continue; }
+            for (var i = 0; i < n.data.length; i++) {
+              var c = n.data[i];
+              if (c === ' ' || c === '\n' || c === '\t' || c === '\r') { if (cur) { gap = []; cur.gap = gap; cur = null; } gap.push([n, i]); }
+              else if (cur) cur.t += c;
+              else { cur = { t: c, gap: null }; tok.push(cur); if (!gap.length && tok.length > 1) tok[tok.length - 2].gap = null; gap = []; }
+            }
+          }
+          var glue = [];
+          for (var k = 0; k < tok.length - 1; k++) {
+            var a = tok[k].t, b = tok[k + 1].t, before = k > 0 ? tok[k - 1].t : '';
+            if ((cs && ONE.test(a)) ||
+                (k > 0 && END.test(before) && !END.test(a)) ||
+                (END.test(b) && !END.test(a)) ||
+                (NUM.test(a) && NUM.test(b)) || a === '©' ||
+                k === tok.length - 2) glue.push(tok[k].gap);
+          }
+          glue.reverse().forEach(function (g) {
+            if (!g || !g.length) return;
+            for (var j = g.length - 1; j >= 0; j--) {
+              var node = g[j][0], idx = g[j][1];
+              node.data = node.data.slice(0, idx) + (j === 0 ? '\u00a0' : '') + node.data.slice(idx + 1);
+            }
+          });
+        });
+      })();
 
       // rozpad slova na písmena kvůli wobble animaci
       document.querySelectorAll('[data-wobble]').forEach(function (el) {
