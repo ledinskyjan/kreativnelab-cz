@@ -148,9 +148,7 @@
   .btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: none; }
 
   /* ---------- HERO ---------- */
-  .hero { padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); }
-  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(24px, 5vh, 60px); }
-  .hero-note { max-width: 34ch; font-size: clamp(14px, 1.3vw, 17px); color: var(--fg-soft); line-height: 1.4; }
+  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); }
   .giant {
     font-weight: 700;
     letter-spacing: -.045em;
@@ -355,11 +353,6 @@
 
     <!-- HERO -->
     <section class="hero wrap">
-      <div class="hero-top reveal">
-        <span class="kicker"><span class="dot"></span>Kreativní a produkční studio · Praha</span>
-        <p class="hero-note">Vlastní projekty a formáty. Spolupráce se značkami a partnery.</p>
-      </div>
-
       <h1 class="giant">
         <span class="l1">kreativně</span>
         <span class="l2" data-wobble>labilní</span>
