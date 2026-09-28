@@ -147,13 +147,25 @@
   .btn.ghost { background: transparent; color: var(--fg); box-shadow: none; }
   .btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: none; }
 
-  /* ---------- HERO ---------- */
-  .hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: clamp(120px, 18vh, 200px); padding-bottom: clamp(40px, 7vh, 90px); }
+  /* ---------- HERO ----------
+     Pevná kompozice: všechny rozměry jsou násobky --s (1px v okně 1440×900),
+     takže první obrazovka vypadá na každém displeji stejně, jen větší nebo menší.
+     Řádky claimu jsou zalomené natvrdo. Na výšku (telefon) platí předloha 390×700. */
+  .hero {
+    --s: min(calc(100vw / 1440), calc(100vh / 900));
+    max-width: none;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: calc(var(--s) * 64);
+  }
+  @supports (height: 100svh) {
+    .hero { --s: min(calc(100vw / 1440), calc(100svh / 900)); min-height: 100svh; }
+  }
   .giant {
     font-weight: 700;
     letter-spacing: -.045em;
     line-height: .82;
-    font-size: clamp(64px, 17.5vw, 290px);
+    font-size: calc(var(--s) * 252);
     text-transform: lowercase;
   }
   .giant .l2 { display: block; color: var(--accent); }
@@ -167,10 +179,24 @@
     50%  { transform: translateY(calc(var(--wob) *  0.03em))  rotate(calc(var(--wob) *  1.1deg)) skewX(calc(var(--wob) * -1deg)); }
     75%  { transform: translateY(calc(var(--wob) * -0.02em))  rotate(calc(var(--wob) *  0.5deg)) skewX(0deg); }
   }
-  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: clamp(28px, 5vh, 56px); }
-  .hero-claim { font-size: clamp(20px, 2.4vw, 34px); font-weight: 500; line-height: 1.22; max-width: 24ch; letter-spacing: -.015em; }
-  .hero-support { margin-top: 16px; font-size: clamp(15px, 1.35vw, 19px); color: var(--fg-soft); line-height: 1.45; max-width: 40ch; font-weight: 400; }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: calc(var(--s) * 32); margin-top: calc(var(--s) * 48); }
+  .hero-claim { font-size: max(15px, calc(var(--s) * 34)); font-weight: 500; line-height: 1.22; letter-spacing: -.015em; white-space: nowrap; }
+  .hero-support { margin-top: calc(var(--s) * 16); font-size: max(12px, calc(var(--s) * 19)); color: var(--fg-soft); line-height: 1.45; font-weight: 400; white-space: nowrap; }
+  .hero .br-m { display: none; }
+  .cta-row { display: flex; gap: calc(var(--s) * 14); flex: none; }
+  .hero .btn { font-size: max(13px, calc(var(--s) * 17)); padding: max(10px, calc(var(--s) * 15)) max(18px, calc(var(--s) * 26)); gap: calc(var(--s) * 10); }
+  @media (max-aspect-ratio: 1/1) {
+    .hero { --s: min(calc(100vw / 390), calc(100vh / 700)); }
+    @supports (height: 100svh) { .hero { --s: min(calc(100vw / 390), calc(100svh / 700)); } }
+    .giant { font-size: calc(var(--s) * 76); }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: calc(var(--s) * 28); margin-top: calc(var(--s) * 36); }
+    .hero-claim { font-size: calc(var(--s) * 20); }
+    .hero-support { margin-top: calc(var(--s) * 14); font-size: calc(var(--s) * 16); }
+    .hero .br-d { display: none; }
+    .hero .br-m { display: inline; }
+    .cta-row { flex-direction: column; align-items: flex-start; gap: calc(var(--s) * 12); }
+    .hero .btn { font-size: calc(var(--s) * 16); padding: calc(var(--s) * 14) calc(var(--s) * 24); }
+  }
 
   /* ---------- MODEL / INTRO ---------- */
   .model { padding-top: clamp(70px, 13vh, 150px); padding-bottom: clamp(70px, 13vh, 150px); border-top: 1px solid var(--hair); }
@@ -360,8 +386,8 @@
 
       <div class="hero-bottom">
         <div class="reveal">
-          <p class="hero-claim">Vymýšlíme, stavíme a vedeme projekty, kolem kterých se chtějí lidé potkávat.</p>
-          <p class="hero-support">Od prvního konceptu přes komunikaci a partnerství až po produkci a provoz.</p>
+          <p class="hero-claim">Vymýšlíme, stavíme a vedeme<br> projekty, kolem kterých se chtějí<br> lidé potkávat.</p>
+          <p class="hero-support">Od prvního konceptu přes komunikaci<br class="br-m"> a partnerství<br class="br-d"> až po produkci a provoz.</p>
         </div>
         <div class="cta-row reveal">
           <a href="#projekty" class="btn">Projekty <span class="arr">→</span></a>
