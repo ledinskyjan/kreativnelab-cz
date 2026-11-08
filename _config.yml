@@ -1,0 +1,3 @@
+# GitHub Pages: interní poznámky k webu nepublikovat
+exclude:
+  - README.md
